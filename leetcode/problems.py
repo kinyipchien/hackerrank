@@ -9,7 +9,6 @@ Contains personal solutions to problems.
 
 # Authors: Kin-Yip Chien
 
-
 # For Solution.findNumbers().
 # Approach not used due to precision issues.
 # from math import floor, log10
@@ -68,7 +67,7 @@ class Solution:
 
         Returns
         -------
-        squares : list of int
+        sorted_squares : list of int
             The squares sorted in non-decreasing order.
 
         Examples
@@ -87,40 +86,22 @@ class Solution:
         -----
         977. Squares of a Sorted Array
         """
-        # TODO: Add solution.
-        pass
-
-    def has_even(self, x:int) -> bool:
-        """
-        Checks if number has an even number of digits.
-
-        Helper method for findNumbers().
-
-        Parameters
-        ----------
-        x : int
-            Number to check.
-
-        Returns
-        -------
-        res : bool
-            Whether number has an even number of digits.
-
-        Examples
-        --------
-        >>> s = Solution()
-        >>> s.has_even(12)
-        True
-
-        >>> s = Solution()
-        >>> s.has_even(345)
-        False
-        """
-        res = True
-        while x:
-            res = not res
-            x //= 10
-        return res
+        sorted_squares = [0] * len(nums)
+        left_read_pointer = 0
+        right_read_pointer = write_pointer = len(nums) - 1
+        left_square = nums[left_read_pointer] ** 2
+        right_square = nums[right_read_pointer] ** 2
+        while write_pointer >= 0:
+            if left_square > right_square:
+                sorted_squares[write_pointer] = left_square
+                left_read_pointer += 1
+                left_square = nums[left_read_pointer] ** 2
+            else:
+                sorted_squares[write_pointer] = right_square
+                right_read_pointer -= 1
+                right_square = nums[right_read_pointer] ** 2
+            write_pointer -= 1
+        return sorted_squares
 
     def duplicateZeros(self, arr: List[int]) -> None:
         """
