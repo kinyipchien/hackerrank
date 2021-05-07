@@ -136,8 +136,39 @@ class Solution:
         -----
         1089. Duplicate Zeros
         """
-        # TODO: Add solution
-        pass
+        zeros = arr.count(0)
+        n = len(arr)
+        for i in range(n - 1, -1, -1):
+            if zeros == 0:
+                break
+            if i + zeros < n:
+                arr[i + zeros] = arr[i]
+            if arr[i] == 0:
+                zeros -= 1
+                if i + zeros < n:
+                    arr[i + zeros] = arr[i]
+
+    def _has_even(self, x:int) -> bool:
+        """
+        Checks if number has an even number of digits.
+
+        Helper method for findNumbers().
+
+        Parameters
+        ----------
+        x : int
+            Number to check.
+
+        Returns
+        -------
+        res : bool
+            Whether number has an even number of digits.
+        """
+        res = True
+        while x:
+            res = not res
+            x //= 10
+        return res
 
     def findNumbers(self, nums: List[int]) -> int:
         """
@@ -177,7 +208,7 @@ class Solution:
         count = 0
         for num in nums:
 
-            count += self.has_even(num)
+            count += self._has_even(num)
 
 #         # math.log10 is inaccurate for powers of 10 plus or minus 1
 #         # when the power is greater than 14.
