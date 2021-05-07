@@ -6,6 +6,10 @@ Contains personal solutions to problems.
 1089. Duplicate Zeros
 1295. Find Numbers with Even Number of Digits
 """
+
+# Authors: Kin-Yip Chien
+
+
 # For Solution.findNumbers().
 # Approach not used due to precision issues.
 # from math import floor, log10
