@@ -1,6 +1,9 @@
 """
 Contains tests to problems.
 
+485. Max Consecutive Ones
+977. Squares of a Sorted Array
+1089. Duplicate Zeros
 1295. Find Numbers with Even Number of Digits
 """
 
