@@ -217,9 +217,3 @@ class Solution:
 #                 count += 1
 
         return count
-
-
-if __name__ == '__main__':
-    # TODO: Remove when finished.
-    import doctest
-    doctest.testmod()
