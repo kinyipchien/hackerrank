@@ -416,10 +416,9 @@ class Solution:
         * `-10^6 <= nums[i] <= 10^6`
         """
         # O(n) Time, O(n) Space.
-        running_sum = [nums[0]]
-        for num in nums[1:]:
-            running_sum.append(running_sum[-1] + num)
-        return running_sum
+        for i in range(1, len(nums)):
+            nums[i] += nums[i - 1]
+        return nums
 
     def sortedSquares(self, nums: List[int]) -> List[int]:
         """
