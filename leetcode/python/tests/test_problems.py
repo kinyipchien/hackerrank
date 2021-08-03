@@ -6,6 +6,7 @@ Contains tests to problems.
 1089. Duplicate Zeros
 1108. Defanging an IP Address
 1295. Find Numbers with Even Number of Digits
+1470. Shuffle the Array
 1480. Running Sum of 1d Array
 1672. Richest Customer Wealth
 1920. Build Array from Permutation
@@ -163,6 +164,33 @@ class TestSolution(unittest.TestCase):
         nums = [3, 1, 2, 10, 1]
         s = Solution()
         self.assertEqual(s.runningSum(nums), [3, 4, 6, 16, 17])
+
+    def test_shuffle1(self):
+        """
+        1470. Shuffle the Array
+        """
+        nums = [2, 5, 1, 3, 4, 7]
+        n = 3
+        s = Solution()
+        self.assertEqual(s.shuffle(nums, n), [2, 3, 5, 4, 1, 7])
+
+    def test_shuffle2(self):
+        """
+        1470. Shuffle the Array
+        """
+        nums = [1, 2, 3, 4, 4, 3, 2, 1]
+        n = 4
+        s = Solution()
+        self.assertEqual(s.shuffle(nums, n), [1, 4, 2, 3, 3, 2, 4, 1])
+
+    def test_shuffle3(self):
+        """
+        1470. Shuffle the Array
+        """
+        nums = [1, 1, 2, 2]
+        n = 2
+        s = Solution()
+        self.assertEqual(s.shuffle(nums, n), [1, 2, 1, 2])
 
     def test_sortedSquares1(self):
         # TODOC: Problem number.
