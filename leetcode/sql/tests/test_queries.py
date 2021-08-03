@@ -9,8 +9,6 @@ Contains tests to problems.
 # Authors: Kin-Yip Chien
 
 import json
-# import sys
-# sys.path.append('..')
 import unittest
 
 import pandas as pd
