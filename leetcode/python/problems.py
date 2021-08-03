@@ -9,12 +9,12 @@ Contains personal solutions to problems.
 1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
 1480. Running Sum of 1d Array
+1512. Number of Good Pairs
 1672. Richest Customer Wealth
 1920. Build Array from Permutation
 1929. Concatenation of Array
 """
-# TODO:
-# 1512. Number of Good Pairs
+# TODO: Add solutions to following problems.
 # 771. Jewels and Stones
 # 1295. Find Numbers with Even Number of Digits
 # 977. Squares of a Sorted Array
@@ -432,6 +432,60 @@ class Solution:
         """
         # O(m*n) Time, O(1) Space.
         return max(map(sum, accounts))
+
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        """
+        Given an array of integers `nums`.
+
+        A pair `(i,j)` is called *good* if `nums[i]` == `nums[j]` and `i` < `j`.
+
+        Return the number of *good* pairs.
+
+        Parameters
+        ----------
+        nums : list of int
+            Array of integers.
+
+        Returns
+        -------
+        num_pairs : int
+            Number of good pairs.
+
+        Examples
+        --------
+        >>> s = Solution()
+        >>> nums = [1, 2, 3, 1, 1, 3]
+        >>> s.numIdenticalPairs(nums)
+        4
+
+        >>> s = Solution()
+        >>> nums = [1, 1, 1, 1]
+        >>> s.numIdenticalPairs(nums)
+        6
+
+        >>> s = Solution()
+        >>> nums = [1, 2, 3]
+        >>> s.numIdenticalPairs(nums)
+        0
+
+        Notes
+        -----
+        1512. Number of Good Pairs
+
+        Constraints:
+        * `1 <= nums.length <= 100`
+        * `1 <= nums[i] <= 100`
+        """
+        # O(n) Time. O(n) Space.
+        c = {}
+        num_pairs = 0
+        for num in nums:
+            if num in c:
+                num_pairs += c[num]
+                c[num] += 1
+            else:
+                c[num] = 1
+        return num_pairs
 
     def runningSum(self, nums: List[int]) -> List[int]:
         """
