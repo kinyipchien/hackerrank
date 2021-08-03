@@ -675,6 +675,7 @@ class Solution:
         -----
         977. Squares of a Sorted Array
         """
+        # TODO: O(?) Time, O(?) Space.
         sorted_squares = [0] * len(nums)
         left_read_pointer = 0
         right_read_pointer = write_pointer = len(nums) - 1
