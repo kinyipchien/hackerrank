@@ -2,6 +2,7 @@
 Contains personal solutions to problems.
 
 485. Max Consecutive Ones
+771. Jewels and Stones
 977. Squares of a Sorted Array
 1089. Duplicate Zeros
 1108. Defanging an IP Address
@@ -484,15 +485,64 @@ class Solution:
         * `1 <= nums[i] <= 100`
         """
         # O(n) Time. O(n) Space.
-        c = {}
+        num_ctr = {}
         num_pairs = 0
         for num in nums:
-            if num in c:
-                num_pairs += c[num]
-                c[num] += 1
+            if num in num_ctr:
+                num_pairs += num_ctr[num]
+                num_ctr[num] += 1
             else:
-                c[num] = 1
+                num_ctr[num] = 1
         return num_pairs
+
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        """
+        You're given strings `jewels` representing the types of stones
+        that are jewels, and `stones` representing the stones you have.
+        Each character in `stones` is a type of stone you have. You
+        want to know how many of the stones you have are also jewels.
+
+        Letters are case sensitive, so `"a"` is considered a different
+        type of stone from `"A"`.
+
+        Parameters
+        ----------
+        jewels : str
+            Jewel characters.
+        stones : str
+            Stones you have.
+
+        Returns
+        -------
+        int
+            Number of jewels you have.
+
+        Examples
+        --------
+        >>> s = Solution()
+        >>> jewels = "aA"
+        >>> stones = "aAAbbbb"
+        >>> s.numJewelsInStones(jewels, stones)
+        3
+
+        >>> s = Solution()
+        >>> jewels = "z"
+        >>> stones = "ZZ"
+        >>> s.numJewelsInStones(jewels, stones)
+        0
+
+        Notes
+        -----
+        771. Jewels and Stones
+
+        Constraints:
+        * `1 <= jewels.length, stones.length <= 50`
+        * `jewels` and `stones` consist of only English letters.
+        * All the characters of `jewels` are **unique**.
+        """
+        # O(j + s) Time, O(j) Space.
+        set_jewels = set(jewels)
+        return sum(stone in set_jewels for stone in stones)
 
     def runningSum(self, nums: List[int]) -> List[int]:
         """
