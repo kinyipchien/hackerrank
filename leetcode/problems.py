@@ -32,93 +32,94 @@ from typing import List
 
 class Solution:
 
-    def findMaxConsecutiveOnes(self, nums: List[int]) -> List:
+    def buildArray(self, nums: List[int]) -> List[int]:
         """
-        Count the maximum number of consecutive 1's.
+        Given a **zero-based permutation** `nums` (**0-indexed**),
+        build an array `ans` of the **same length** where
+        `ans[i] = nums[nums[i]]` for each `0 <= i < nums.length` and
+        return it.
+
+        A **zero-based permutation** `nums` is an array of **distinct**
+        integers from `0` to `nums.length - 1` (**inclusive**).
 
         Parameters
         ----------
         nums : list of int
-            Binary array.
+            Zero-based permutation.
 
         Returns
         -------
-        count : int
+        ans : list of int
+            Output array.
 
         Examples
         --------
-        >>> nums = [1,1,0,1,1,1]
+        >>> nums = [0, 2, 1, 5, 3, 4]
         >>> s = Solution()
-        >>> s.findMaxConsecutiveOnes(nums)
-        3
+        >>> s.buildArray(nums)
+        [0, 1, 2, 4, 5, 3]
 
-        >>> nums = [1,0,1,1,0,1]
+        >>> nums = [5, 0, 1, 2, 3, 4]
         >>> s = Solution()
-        >>> s.findMaxConsecutiveOnes(nums)
-        2
+        >>> s.buildArray(nums)
+        [4, 5, 0, 1, 2, 3]
 
         Notes
         -----
-        485. Max Consecutive Ones
-        """
-        count = maxcount = 0
-        for num in nums:
-            if num == 1:
-                count += 1
-                if maxcount < count:
-                    maxcount = count
-            else:
-                count = 0
-        return maxcount
+        1920. Build Array from Permutation
 
-    def sortedSquares(self, nums: List[int]) -> List[int]:
+        Constraints:
+        * `1 <= nums.length <= 1000`
+        * `0 <= nums[i] < nums.length`
+        * The elements in `nums` are **distinct.**
         """
-        Return the squares of the numbers in non-decreasing order.
+        # TODO: O(n) Time, O(1) Space.
+
+        # O(n) Time, O(n) Space.
+        return [nums[num] for num in nums]
+
+    def defangIPaddr(self, address: str) -> str:
+        """
+        Given a valid (IPv4) IP `address`, return a defanged version of
+        that IP address.
+
+        A *defanged IP address* replaces every period `"."` with
+        `"[.]"`.
 
         Parameters
         ----------
-        nums : list of int
-            Array of integers.
+        address : str
+            IPv4 address.
 
         Returns
         -------
-        sorted_squares : list of int
-            The squares sorted in non-decreasing order.
+        str
+            Defanged IPv4 address.
 
         Examples
         --------
-        >>> nums = [-4,-1,0,3,10]
+        >>> address = "1.1.1.1"
         >>> s = Solution()
-        >>> s.sortedSquares(nums)
-        [0, 1, 9, 16, 100]
+        >>> s.defangIPaddr(address)
+        '1[.]1[.]1[.]1'
 
-        >>> nums = [-7,-3,2,3,11]
+        >>> address = "255.100.50.0"
         >>> s = Solution()
-        >>> s.sortedSquares(nums)
-        [4, 9, 9, 49, 121]
+        >>> s.defangIPaddr(address)
+        '255[.]100[.]50[.]0'
 
         Notes
         -----
-        977. Squares of a Sorted Array
+        1108. Defanging an IP Address
         """
-        sorted_squares = [0] * len(nums)
-        left_read_pointer = 0
-        right_read_pointer = write_pointer = len(nums) - 1
-        left_square = nums[left_read_pointer] ** 2
-        right_square = nums[right_read_pointer] ** 2
-        while write_pointer >= 0:
-            if left_square > right_square:
-                sorted_squares[write_pointer] = left_square
-                left_read_pointer += 1
-                left_square = nums[left_read_pointer] ** 2
-            else:
-                sorted_squares[write_pointer] = right_square
-                right_read_pointer -= 1
-                right_square = nums[right_read_pointer] ** 2
-            write_pointer -= 1
-        return sorted_squares
+        # O(n * (m1 + m2/m1)) Time, O(n) Space.
+        # n : length of the string
+        # m1 : length of the searched for string.
+        # m2 : length of the replacement.
+        return address.replace('.', '[.]')
 
     def duplicateZeros(self, arr: List[int]) -> None:
+        # TODOC: Constraints.
         """
         Modifies an array in place, duplicating occurrences of zero and
         shifting the remaining elements to the right. Elements beyond
@@ -151,6 +152,7 @@ class Solution:
         -----
         1089. Duplicate Zeros
         """
+        # TODO: O(?) Time, O(?) Space.
         zeros = arr.count(0)
         n = len(arr)
         for i in range(n - 1, -1, -1):
