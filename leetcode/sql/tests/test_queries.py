@@ -2,13 +2,15 @@
 Contains tests to problems.
 
 595. Big Countries
+627. Swap Salary
+1179. Reformat Department Table
 """
 
 # Authors: Kin-Yip Chien
 
 import json
-import sys
-sys.path.append('..')
+# import sys
+# sys.path.append('..')
 import unittest
 
 import pandas as pd
