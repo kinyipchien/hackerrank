@@ -9,6 +9,7 @@ Contains tests to problems.
 1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
 1480. Running Sum of 1d Array
+1512. Number of Good Pairs
 1672. Richest Customer Wealth
 1920. Build Array from Permutation
 1929. Concatenation of Array
@@ -132,6 +133,21 @@ class TestSolution(unittest.TestCase):
 
         accounts = [[2, 8, 7], [7, 1, 3], [1, 9, 5]]
         self.assertEqual(s.maximumWealth(accounts), 17)
+
+    def test_numIdenticalPairs(self):
+        """
+        1512. Number of Good Pairs
+        """
+        s = Solution()
+
+        nums = [1, 2, 3, 1, 1, 3]
+        self.assertEqual(s.numIdenticalPairs(nums), 4)
+
+        nums = [1, 1, 1, 1]
+        self.assertEqual(s.numIdenticalPairs(nums), 6)
+
+        nums = [1, 2, 3]
+        self.assertEqual(s.numIdenticalPairs(nums), 0)
 
     def test_runningSum(self):
         """
