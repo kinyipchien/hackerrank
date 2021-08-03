@@ -319,6 +319,69 @@ class Solution:
         # O(n) Time, O(n) Space.
         return nums + nums
 
+    def kidsWithCandies(
+        self, candies: List[int], extraCandies: int
+    ) -> List[bool]:
+        """
+        There are `n` kids with candies. You are given an integer array
+        `candies`, where each `candies[i]` represents the number of
+        candies the `ith` kid has, and an integer `extraCandies`,
+        denoting the number of extra candies that you have.
+
+        Return a *boolean array `result` of length `n`, where
+        `result[i]` is `true` if, after giving the `ith` kid all the
+        `extraCandies`, they will have the **greatest number** of
+        candies among all the kids, or `false` otherwise*.
+
+        Note that multiple kids can have the greatest number of
+        candies.
+
+        Parameters
+        ----------
+        candies : list of int
+            Number of candies each kid has.
+        extraCandies : int
+            Number of extra candies.
+
+        Returns
+        -------
+        has_greatest_num_candies : list of bool
+            Whether each kid has the greatest number of candies.
+
+        Examples
+        --------
+        >>> s = Solution()
+        >>> candies = [2, 3, 5, 1, 3]
+        >>> extraCandies = 3
+        >>> s.kidsWithCandies(candies, extraCandies)
+        [True, True, True, False, True]
+
+        >>> s = Solution()
+        >>> candies = [4, 2, 1, 1, 2]
+        >>> extraCandies = 1
+        >>> s.kidsWithCandies(candies, extraCandies)
+        [True, False, False, False, False]
+
+        >>> s = Solution()
+        >>> candies = [12, 1, 12]
+        >>> extraCandies = 10
+        >>> s.kidsWithCandies(candies, extraCandies)
+        [True, False, True]
+
+        Notes
+        -----
+        1431. Kids With the Greatest Number of Candies
+
+        Constraints:
+        * `n == candies.length`
+        * `2 <= n <= 100`
+        * `1 <= candies[i] <= 100`
+        * `1 <= extraCandies <= 50`
+        """
+        # O(n) Time, O(n) Space.
+        threshold = max(candies) - extraCandies
+        return [kid >= threshold for kid in candies]
+
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         """
         You are given an `m x n` integer grid `accounts` where
