@@ -18,7 +18,7 @@ import sys
 sys.path.append('..')
 import unittest
 
-from leetcode.problems import Solution
+from problems import Solution
 
 
 class TestSolution(unittest.TestCase):
