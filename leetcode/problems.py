@@ -165,6 +165,46 @@ class Solution:
                 if i + zeros < n:
                     arr[i + zeros] = arr[i]
 
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> List:
+        # TODOC: Constraints.
+        """
+        Count the maximum number of consecutive 1's.
+
+        Parameters
+        ----------
+        nums : list of int
+            Binary array.
+
+        Returns
+        -------
+        count : int
+
+        Examples
+        --------
+        >>> nums = [1,1,0,1,1,1]
+        >>> s = Solution()
+        >>> s.findMaxConsecutiveOnes(nums)
+        3
+
+        >>> nums = [1,0,1,1,0,1]
+        >>> s = Solution()
+        >>> s.findMaxConsecutiveOnes(nums)
+        2
+
+        Notes
+        -----
+        485. Max Consecutive Ones
+        """
+        # TODO: O(?) Time, O(?) Space.
+        count = maxcount = 0
+        for num in nums:
+            if num == 1:
+                count += 1
+                maxcount = max(maxcount, count)
+            else:
+                count = 0
+        return maxcount
+
     def _has_even(self, x:int) -> bool:
         """
         Checks if number has an even number of digits.
