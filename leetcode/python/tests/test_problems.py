@@ -73,7 +73,9 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(s.findMaxConsecutiveOnes(nums), 2)
 
     def test_findNumbers(self):
-        # TODOC: Problem number.
+        """
+        1295. Find Numbers with Even Number of Digits
+        """
         s = Solution()
 
         nums = [12, 345, 2, 6, 7896]
@@ -84,6 +86,9 @@ class TestSolution(unittest.TestCase):
 
         nums = [999999999999999]
         self.assertEqual(s.findNumbers(nums), 0)
+
+        nums = [100000]
+        self.assertEqual(s.findNumbers(nums), 1)
 
     def test_getConcatenation(self):
         """
