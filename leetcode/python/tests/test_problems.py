@@ -6,6 +6,7 @@ Contains tests to problems.
 1089. Duplicate Zeros
 1108. Defanging an IP Address
 1295. Find Numbers with Even Number of Digits
+1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
 1480. Running Sum of 1d Array
 1672. Richest Customer Wealth
