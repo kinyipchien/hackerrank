@@ -53,13 +53,13 @@ class Solution:
 
         Examples
         --------
-        >>> nums = [0, 2, 1, 5, 3, 4]
         >>> s = Solution()
+        >>> nums = [0, 2, 1, 5, 3, 4]
         >>> s.buildArray(nums)
         [0, 1, 2, 4, 5, 3]
 
-        >>> nums = [5, 0, 1, 2, 3, 4]
         >>> s = Solution()
+        >>> nums = [5, 0, 1, 2, 3, 4]
         >>> s.buildArray(nums)
         [4, 5, 0, 1, 2, 3]
 
@@ -97,13 +97,13 @@ class Solution:
 
         Examples
         --------
-        >>> address = "1.1.1.1"
         >>> s = Solution()
+        >>> address = "1.1.1.1"
         >>> s.defangIPaddr(address)
         '1[.]1[.]1[.]1'
 
-        >>> address = "255.100.50.0"
         >>> s = Solution()
+        >>> address = "255.100.50.0"
         >>> s.defangIPaddr(address)
         '255[.]100[.]50[.]0'
 
@@ -135,14 +135,14 @@ class Solution:
 
         Examples
         --------
-        >>> arr = [1,0,2,3,0,4,5,0]
         >>> s = Solution()
+        >>> arr = [1, 0, 2, 3, 0, 4, 5, 0]
         >>> s.duplicateZeros(arr)
         >>> arr
         [1, 0, 0, 2, 3, 0, 0, 4]
 
-        >>> arr = [1,2,3]
         >>> s = Solution()
+        >>> arr = [1, 2, 3]
         >>> s.duplicateZeros(arr)
         >>> arr
         [1, 2, 3]
@@ -180,13 +180,13 @@ class Solution:
 
         Examples
         --------
-        >>> nums = [1,1,0,1,1,1]
         >>> s = Solution()
+        >>> nums = [1,1,0,1,1,1]
         >>> s.findMaxConsecutiveOnes(nums)
         3
 
-        >>> nums = [1,0,1,1,0,1]
         >>> s = Solution()
+        >>> nums = [1,0,1,1,0,1]
         >>> s.findMaxConsecutiveOnes(nums)
         2
 
@@ -243,18 +243,18 @@ class Solution:
 
         Examples
         --------
-        >>> nums = [12, 345, 2, 6, 7896]
         >>> s = Solution()
+        >>> nums = [12, 345, 2, 6, 7896]
         >>> s.findNumbers(nums)
         2
 
-        >>> nums = [555, 901, 482, 1771]
         >>> s = Solution()
+        >>> nums = [555, 901, 482, 1771]
         >>> s.findNumbers(nums)
         1
 
-        >>> nums = [999999999999999]
         >>> s = Solution()
+        >>> nums = [999999999999999]
         >>> s.findNumbers(nums)
         0
 
@@ -297,13 +297,13 @@ class Solution:
 
         Examples
         --------
-        >>> nums = [1, 2, 1]
         >>> s = Solution()
+        >>> nums = [1, 2, 1]
         >>> s.getConcatenation(nums)
         [1, 2, 1, 1, 2, 1]
 
-        >>> nums = [1, 3, 2, 1]
         >>> s = Solution()
+        >>> nums = [1, 3, 2, 1]
         >>> s.getConcatenation(nums)
         [1, 3, 2, 1, 1, 3, 2, 1]
 
@@ -342,18 +342,18 @@ class Solution:
 
         Examples
         --------
-        >>> accounts = [[1, 2, 3], [3, 2, 1]]
         >>> s = Solution()
+        >>> accounts = [[1, 2, 3], [3, 2, 1]]
         >>> s.maximumWealth(accounts)
         6
 
-        >>> accounts = [[1, 5], [7, 3], [3, 5]]
         >>> s = Solution()
+        >>> accounts = [[1, 5], [7, 3], [3, 5]]
         >>> s.maximumWealth(accounts)
         10
 
-        >>> accounts = [[2, 8, 7], [7, 1, 3], [1, 9, 5]]
         >>> s = Solution()
+        >>> accounts = [[2, 8, 7], [7, 1, 3], [1, 9, 5]]
         >>> s.maximumWealth(accounts)
         17
 
@@ -389,18 +389,18 @@ class Solution:
 
         Examples
         --------
-        >>> nums = [1, 2, 3, 4]
         >>> s = Solution()
+        >>> nums = [1, 2, 3, 4]
         >>> s.runningSum(nums)
         [1, 3, 6, 10]
 
-        >>> nums = [1, 1, 1, 1, 1]
         >>> s = Solution()
+        >>> nums = [1, 1, 1, 1, 1]
         >>> s.runningSum(nums)
         [1, 2, 3, 4, 5]
 
-        >>> nums = [3, 1, 2, 10, 1]
         >>> s = Solution()
+        >>> nums = [3, 1, 2, 10, 1]
         >>> s.runningSum(nums)
         [3, 4, 6, 16, 17]
 
@@ -438,21 +438,21 @@ class Solution:
 
         Examples
         --------
+        >>> s = Solution()
         >>> nums = [2, 5, 1, 3, 4, 7]
         >>> n = 3
-        >>> s = Solution()
         >>> s.shuffle(nums, n)
         [2, 3, 5, 4, 1, 7]
 
+        >>> s = Solution()
         >>> nums = [1, 2, 3, 4, 4, 3, 2, 1]
         >>> n = 4
-        >>> s = Solution()
         >>> s.shuffle(nums, n)
         [1, 4, 2, 3, 3, 2, 4, 1]
 
+        >>> s = Solution()
         >>> nums = [1, 1, 2, 2]
         >>> n = 2
-        >>> s = Solution()
         >>> s.shuffle(nums, n)
         [1, 2, 1, 2]
 
@@ -487,13 +487,13 @@ class Solution:
 
         Examples
         --------
-        >>> nums = [-4,-1,0,3,10]
         >>> s = Solution()
+        >>> nums = [-4,-1,0,3,10]
         >>> s.sortedSquares(nums)
         [0, 1, 9, 16, 100]
 
-        >>> nums = [-7,-3,2,3,11]
         >>> s = Solution()
+        >>> nums = [-7,-3,2,3,11]
         >>> s.sortedSquares(nums)
         [4, 9, 9, 49, 121]
 
