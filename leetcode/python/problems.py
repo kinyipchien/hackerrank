@@ -127,7 +127,7 @@ class Solution:
         Parameters
         ----------
         arr : list of int
-            Array of integers.
+            Integer array.
 
         Returns
         -------
@@ -234,7 +234,7 @@ class Solution:
         Parameters
         ----------
         nums : list of int
-            Array of integers.
+            Integer array.
 
         Returns
         -------
@@ -595,7 +595,7 @@ class Solution:
         Parameters
         ----------
         nums : list of int
-            Array of integers.
+            Integer array.
 
         Returns
         -------
