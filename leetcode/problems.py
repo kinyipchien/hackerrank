@@ -276,3 +276,199 @@ class Solution:
 #                 count += 1
 
         return count
+
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        """
+        Given an integer array `nums` of length `n`, you want to create
+        an array `ans` of length `2n` where `ans[i] == nums[i]` and
+        `ans[i + n] == nums[i]` for `0 <= i < n` (**0-indexed**).
+
+        Specifically, `ans` is the **concatenation** of two `nums`
+        arrays.
+
+        Return *the array* `ans`.
+
+        Parameters
+        ----------
+        nums : list of int
+            Integer array.
+
+        Returns
+        -------
+        ans : list of int
+            Concatenated array.
+
+        Examples
+        --------
+        >>> nums = [1, 2, 1]
+        >>> s = Solution()
+        >>> s.getConcatenation(nums)
+        [1, 2, 1, 1, 2, 1]
+
+        >>> nums = [1, 3, 2, 1]
+        >>> s = Solution()
+        >>> s.getConcatenation(nums)
+        [1, 3, 2, 1, 1, 3, 2, 1]
+
+        Notes
+        -----
+        1929. Concatenation of Array
+
+        Constraints:
+        * `n == nums.length`
+        * `1 <= n <= 1000`
+        * `1 <= nums[i] <= 1000`
+        """
+        # O(n) Time, O(n) Space.
+        return nums + nums
+
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        """
+        You are given an `m x n` integer grid `accounts` where
+        `accounts[i][j]` is the amount of money the `ith` customer has
+        in the `jth` bank. Return *the **wealth** that the richest
+        customer has*.
+
+        A customer's **wealth** is the amount of money they have in all
+        their bank accounts. The richest customer is the customer that
+        has the maximum **wealth**.
+
+        Parameters
+        ----------
+        accounts : list of list of int
+            Matrix of money held by each customer in each bank.
+
+        Returns
+        -------
+        int
+            Wealth of the richest customer.
+
+        Examples
+        --------
+        >>> accounts = [[1, 2, 3], [3, 2, 1]]
+        >>> s = Solution()
+        >>> s.maximumWealth(accounts)
+        6
+
+        >>> accounts = [[1, 5], [7, 3], [3, 5]]
+        >>> s = Solution()
+        >>> s.maximumWealth(accounts)
+        10
+
+        >>> accounts = [[2, 8, 7], [7, 1, 3], [1, 9, 5]]
+        >>> s = Solution()
+        >>> s.maximumWealth(accounts)
+        17
+
+        Notes
+        -----
+        1672. Richest Customer Wealth
+
+        Constraints:
+        * `m == accounts.length`
+        * `n == accounts[i].length`
+        * `1 <= m, n <= 50`
+        * `1 <= accounts[i][j] <= 100`
+        """
+        # O(m*n) Time, O(1) Space.
+        return max(map(sum, accounts))
+
+    def runningSum(self, nums: List[int]) -> List[int]:
+        """
+        Given an array `nums`. We define a running sum of an array as
+        `runningSum[i] = sum(nums[0]…nums[i])`.
+
+        Return the running sum of `nums`.
+
+        Parameters
+        ----------
+        nums : list of int
+            Array.
+
+        Returns
+        -------
+        running_sum : list of int
+            Running sum array.
+
+        Examples
+        --------
+        >>> nums = [1, 2, 3, 4]
+        >>> s = Solution()
+        >>> s.runningSum(nums)
+        [1, 3, 6, 10]
+
+        >>> nums = [1, 1, 1, 1, 1]
+        >>> s = Solution()
+        >>> s.runningSum(nums)
+        [1, 2, 3, 4, 5]
+
+        >>> nums = [3, 1, 2, 10, 1]
+        >>> s = Solution()
+        >>> s.runningSum(nums)
+        [3, 4, 6, 16, 17]
+
+        Notes
+        -----
+        1480. Running Sum of 1d Array
+
+        Constraints:
+        * `1 <= nums.length <= 1000`
+        * `-10^6 <= nums[i] <= 10^6`
+        """
+        # O(n) Time, O(n) Space.
+        running_sum = [nums[0]]
+        for num in nums[1:]:
+            running_sum.append(running_sum[-1] + num)
+        return running_sum
+
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        """
+        Return the squares of the numbers in non-decreasing order.
+
+        Parameters
+        ----------
+        nums : list of int
+            Array of integers.
+
+        Returns
+        -------
+        sorted_squares : list of int
+            The squares sorted in non-decreasing order.
+
+        Examples
+        --------
+        >>> nums = [-4,-1,0,3,10]
+        >>> s = Solution()
+        >>> s.sortedSquares(nums)
+        [0, 1, 9, 16, 100]
+
+        >>> nums = [-7,-3,2,3,11]
+        >>> s = Solution()
+        >>> s.sortedSquares(nums)
+        [4, 9, 9, 49, 121]
+
+        Notes
+        -----
+        977. Squares of a Sorted Array
+        """
+        sorted_squares = [0] * len(nums)
+        left_read_pointer = 0
+        right_read_pointer = write_pointer = len(nums) - 1
+        left_square = nums[left_read_pointer] ** 2
+        right_square = nums[right_read_pointer] ** 2
+        while write_pointer >= 0:
+            if left_square > right_square:
+                sorted_squares[write_pointer] = left_square
+                left_read_pointer += 1
+                left_square = nums[left_read_pointer] ** 2
+            else:
+                sorted_squares[write_pointer] = right_square
+                right_read_pointer -= 1
+                right_square = nums[right_read_pointer] ** 2
+            write_pointer -= 1
+        return sorted_squares
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
