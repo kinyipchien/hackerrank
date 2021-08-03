@@ -265,15 +265,13 @@ class Solution:
         # TODO: O(?) Time, O(?) Space.
         count = 0
         for num in nums:
-
-            count += self._has_even(num)
-
 #         # math.log10 is inaccurate for powers of 10 plus or minus 1
 #         # when the power is greater than 14.
 #             digits = floor(log10(num)) + 1
 #             if digits % 2 == 0:
 #                 count += 1
 
+            count += self._has_even(num)
         return count
 
     def getConcatenation(self, nums: List[int]) -> List[int]:
