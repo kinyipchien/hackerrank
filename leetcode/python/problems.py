@@ -417,6 +417,60 @@ class Solution:
             nums[i] += nums[i - 1]
         return nums
 
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        """
+        Given the array `nums` consisting of `2n` elements in the form
+        `[x1,x2,...,xn,y1,y2,...,yn]`.
+
+        *Return the array in the form* `[x1,y1,x2,y2,...,xn,yn]`.
+
+        Parameters
+        ----------
+        nums : list of int
+            Integer array.
+        n : int
+            Positive integer.
+
+        Returns
+        -------
+        shuffled : list of int
+            Shuffled array.
+
+        Examples
+        --------
+        >>> nums = [2, 5, 1, 3, 4, 7]
+        >>> n = 3
+        >>> s = Solution()
+        >>> s.shuffle(nums, n)
+        [2, 3, 5, 4, 1, 7]
+
+        >>> nums = [1, 2, 3, 4, 4, 3, 2, 1]
+        >>> n = 4
+        >>> s = Solution()
+        >>> s.shuffle(nums, n)
+        [1, 4, 2, 3, 3, 2, 4, 1]
+
+        >>> nums = [1, 1, 2, 2]
+        >>> n = 2
+        >>> s = Solution()
+        >>> s.shuffle(nums, n)
+        [1, 2, 1, 2]
+
+        Notes
+        -----
+        1470. Shuffle the Array
+
+        Constraints:
+        * `1 <= n <= 500`
+        * `nums.length == 2n`
+        * `1 <= nums[i] <= 10^3`
+        """
+        # O(n) Time, O(n) Space.
+        shuffled = []
+        for x, y in zip(nums[:n], nums[n:]):
+            shuffled += [x, y]
+        return shuffled
+
     def sortedSquares(self, nums: List[int]) -> List[int]:
         """
         Return the squares of the numbers in non-decreasing order.
