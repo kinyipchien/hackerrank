@@ -72,7 +72,7 @@ class Solution:
         * `0 <= nums[i] < nums.length`
         * The elements in `nums` are **distinct.**
         """
-        # TODO: O(n) Time, O(1) Space.
+        # RFE: Implement in O(n) Time, O(1) Space.
 
         # O(n) Time, O(n) Space.
         return [nums[num] for num in nums]
