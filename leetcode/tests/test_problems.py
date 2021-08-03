@@ -4,7 +4,12 @@ Contains tests to problems.
 485. Max Consecutive Ones
 977. Squares of a Sorted Array
 1089. Duplicate Zeros
+1108. Defanging an IP Address
 1295. Find Numbers with Even Number of Digits
+1480. Running Sum of 1d Array
+1672. Richest Customer Wealth
+1920. Build Array from Permutation
+1929. Concatenation of Array
 """
 
 # Authors: Kin-Yip Chien
