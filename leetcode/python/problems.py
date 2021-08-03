@@ -15,8 +15,6 @@ Contains personal solutions to problems.
 1929. Concatenation of Array
 """
 # TODO: Add solutions to following problems.
-# 771. Jewels and Stones
-# 1295. Find Numbers with Even Number of Digits
 # 977. Squares of a Sorted Array
 # 485. Max Consecutive Ones
 # 1089. Duplicate Zeros
@@ -204,7 +202,7 @@ class Solution:
                 count = 0
         return maxcount
 
-    def _has_even(self, x:int) -> bool:
+    def _has_even_num_digits(self, x:int) -> bool:
         """
         Checks if number has an even number of digits.
 
@@ -217,28 +215,29 @@ class Solution:
 
         Returns
         -------
-        even_digits : bool
+        even_num_digits : bool
             Whether number has an even number of digits.
         """
-        even_digits = True
-        while x:
-            even_digits = not even_digits
+        even_num_digits = False
+        while x >= 10:
+            even_num_digits = not even_num_digits
             x //= 10
-        return even_digits
+        return even_num_digits
 
     def findNumbers(self, nums: List[int]) -> int:
         # TODOC: Constraints.
         """
-        Count integers containing an even number of digits.
+        Given an array `nums` of integers, return how many of them
+        contain an **even number** of digits.
 
         Parameters
         ----------
         nums : list of int
-            Integer array.
+            Array of integers.
 
         Returns
         -------
-        count : int
+        int
             Count of integers containing an even number of digits.
 
         Examples
@@ -258,21 +257,29 @@ class Solution:
         >>> s.findNumbers(nums)
         0
 
+        >>> s = Solution()
+        >>> nums = [100000]
+        >>> s.findNumbers(nums)
+        1
+
         Notes
         -----
         1295. Find Numbers with Even Number of Digits
+
+        Constraints:
+        * `1 <= nums.length <= 500`
+        * `1 <= nums[i] <= 10^5`
         """
-        # TODO: O(?) Time, O(?) Space.
-        count = 0
-        for num in nums:
-#         # math.log10 is inaccurate for powers of 10 plus or minus 1
-#         # when the power is greater than 14.
+        # O(nlogn) Time, O(1) Space.
+        return sum(self._has_even_num_digits(num) for num in nums)
+
+        # BUG: math.log10 is inaccurate for 1e(x) +/- 1 when x > 14.
+#         count_even_num_digits = 0
+#         for num in nums:
 #             digits = floor(log10(num)) + 1
 #             if digits % 2 == 0:
-#                 count += 1
-
-            count += self._has_even(num)
-        return count
+#                 count_even_num_digits += 1
+#         return count_even_num_digits
 
     def getConcatenation(self, nums: List[int]) -> List[int]:
         """
