@@ -217,14 +217,14 @@ class Solution:
 
         Returns
         -------
-        res : bool
+        even_digits : bool
             Whether number has an even number of digits.
         """
-        res = True
+        even_digits = True
         while x:
-            res = not res
+            even_digits = not even_digits
             x //= 10
-        return res
+        return even_digits
 
     def findNumbers(self, nums: List[int]) -> int:
         # TODOC: Constraints.
