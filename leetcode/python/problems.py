@@ -9,6 +9,7 @@ Contains personal solutions to LeetCode problems.
 1295. Find Numbers with Even Number of Digits
 1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
+1476. Subrectangle Queries
 1480. Running Sum of 1d Array
 1512. Number of Good Pairs
 1603. Design Parking System
@@ -744,6 +745,113 @@ class Solution:
                 right -= 1
         return sorted_squares
 
+
+class SubrectangleQueries:
+    """
+    The class SubrectangleQueries receives a matrix of integers.
+
+    Parameters
+    ----------
+    rectangle : list of list of int
+        Rows x cols rectangle.
+
+    Examples
+    --------
+    >>> subrectangleQueries = SubrectangleQueries(
+    ...     [[1, 2, 1], [4, 3, 4], [3, 2, 1], [1, 1, 1]])
+    >>> subrectangleQueries.getValue(0, 2)
+    1
+    >>> subrectangleQueries.updateSubrectangle(0, 0, 3, 2, 5)
+    >>> subrectangleQueries.rectangle
+    [[5, 5, 5], [5, 5, 5], [5, 5, 5], [5, 5, 5]]
+    >>> subrectangleQueries.getValue(0, 2)
+    5
+    >>> subrectangleQueries.getValue(3, 1)
+    5
+    >>> subrectangleQueries.updateSubrectangle(3, 0, 3, 2, 10)
+    >>> subrectangleQueries.rectangle
+    [[5, 5, 5], [5, 5, 5], [5, 5, 5], [10, 10, 10]]
+    >>> subrectangleQueries.getValue(3, 1)
+    10
+    >>> subrectangleQueries.getValue(0, 2)
+    5
+
+    >>> subrectangleQueries = SubrectangleQueries(
+    ...     [[1, 1, 1], [2, 2, 2], [3, 3, 3]])
+    >>> subrectangleQueries.getValue(0, 0)
+    1
+    >>> subrectangleQueries.updateSubrectangle(0, 0, 2, 2, 100)
+    >>> subrectangleQueries.getValue(0, 0)
+    100
+    >>> subrectangleQueries.getValue(2, 2)
+    100
+    >>> subrectangleQueries.updateSubrectangle(1, 1, 2, 2, 20)
+    >>> subrectangleQueries.getValue(2, 2)
+    20
+
+    Notes
+    -----
+    1476. Subrectangle Queries
+
+    Constraints:
+    * There will be at most `500` operations considering both methods:
+    `updateSubrectangle` and `getValue`.
+    * `1 <= rows, cols <= 100`
+    * `rows == rectangle.length`
+    * `cols == rectangle[i].length`
+    * `0 <= row1 <= row2 < rows`
+    * `0 <= col1 <= col2 < cols`
+    * `1 <= newValue, rectangle[i][j] <= 10^9`
+    * `0 <= row < rows`
+    * `0 <= col < cols`
+    """
+    def __init__(self, rectangle: List[List[int]]):
+        self.rectangle = rectangle
+
+    def updateSubrectangle(
+        self, row1: int, col1: int, row2: int, col2: int, newValue: int
+    ) -> None:
+        """
+        Updates all values in the subrectangle.
+
+        Parameters
+        ----------
+        row1 : int
+            Row of upper left corner of subrectangle.
+        col1 : int
+            Column of upper left corner of subrectangle.
+        row2 : int
+            Row of bottom right corner of subrectangle.
+        col2 : int
+            Column of bottom right corner of subrectangle.
+        newalue : int
+            Value to update with.
+
+        Returns
+        -------
+        None
+        """
+        new_row = [newValue] * (col2 - col1 + 1)
+        for row in range(row1, row2 + 1):
+            self.rectangle[row][col1:col2 + 1] = new_row
+
+    def getValue(self, row: int, col: int) -> int:
+        """
+        Returns the rectangle value at the coordinate (row, col).
+
+        Parameters
+        ----------
+        row : int
+            Rectangle row.
+        col : int
+            Rectangle column
+
+        Returns
+        -------
+        int
+            Rectangle value at coordinate.
+        """
+        return self.rectangle[row][col]
 
 if __name__ == '__main__':
     import doctest

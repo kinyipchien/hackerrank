@@ -9,6 +9,7 @@ Contains tests for LeetCode problems.
 1295. Find Numbers with Even Number of Digits
 1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
+1476. Subrectangle Queries
 1480. Running Sum of 1d Array
 1512. Number of Good Pairs
 1603. Design Parking System
@@ -23,7 +24,7 @@ import sys
 sys.path.append('..')
 import unittest
 
-from problems import ParkingSystem, Solution
+from problems import ParkingSystem, Solution, SubrectangleQueries
 
 
 class TestParkingSystem(unittest.TestCase):
@@ -240,6 +241,69 @@ class TestSolution(unittest.TestCase):
 
         nums = [-7, -3, 2, 3, 11]
         self.assertEqual(s.sortedSquares(nums), [4, 9, 9, 49, 121])
+
+
+class TestSubrectangleQueries(unittest.TestCase):
+    """
+    1476. Subrectangle Queries
+    """
+
+    def setUp(self):
+        self.input = [
+            [
+                ["SubrectangleQueries",
+                 "getValue",
+                 "updateSubrectangle",
+                 "getValue",
+                 "getValue",
+                 "updateSubrectangle",
+                 "getValue",
+                 "getValue"],
+                [[[[1, 2, 1], [4, 3, 4], [3, 2, 1], [1, 1, 1]]],
+                 [0, 2],
+                 [0, 0, 3, 2, 5],
+                 [0, 2],
+                 [3, 1],
+                 [3, 0, 3, 2, 10],
+                 [3, 1],
+                 [0, 2]]
+            ],
+            [
+                ["SubrectangleQueries",
+                 "getValue",
+                 "updateSubrectangle",
+                 "getValue",
+                 "getValue",
+                 "updateSubrectangle",
+                 "getValue"],
+                [[[[1, 1, 1], [2, 2, 2], [3, 3, 3]]],
+                 [0, 0],
+                 [0, 0, 2, 2, 100],
+                 [0, 0],
+                 [2, 2],
+                 [1, 1, 2, 2, 20],
+                 [2, 2]]
+            ]
+        ]
+        self.expected = [
+            [None, 1, None, 5, 5, None, 10, 5],
+            [None, 1, None, 100, 100, None, 20]
+        ]
+
+    def case(self, i):
+        output = []
+        for callable_, arg in zip(self.input[i][0], self.input[i][1]):
+            if callable_ == 'SubrectangleQueries':
+                subrectangleQueries = SubrectangleQueries(*arg)
+                output.append(None)
+            else:
+                output.append(
+                    getattr(subrectangleQueries, callable_)(*arg))
+        self.assertEqual(output, self.expected[i])
+
+    def test_subrectangleQueries(self):
+        for i in range(len(self.input)):
+            self.case(i)
 
 
 if __name__ == '__main__':
