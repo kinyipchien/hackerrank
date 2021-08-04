@@ -1,7 +1,8 @@
 """
-Contains tests to problems.
+Contains tests for LeetCode problems.
 
 485. Max Consecutive Ones
+771. Jewels and Stones
 977. Squares of a Sorted Array
 1089. Duplicate Zeros
 1108. Defanging an IP Address
@@ -51,7 +52,9 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(s.defangIPaddr(address), "255[.]100[.]50[.]0")
 
     def test_duplicateZeros(self):
-        # TODOC: Problem number.
+        """
+        1089. Duplicate Zeros
+        """
         s = Solution()
 
         arr = [1, 0, 2, 3, 0, 4, 5, 0]
@@ -63,7 +66,9 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(arr, [1, 2, 3])
 
     def test_findMaxConsecutiveOnes(self):
-        # TODOC: Problem number.
+        """
+        485. Max Consecutive Ones
+        """
         s = Solution()
 
         nums = [1, 1, 0, 1, 1, 1]
@@ -154,6 +159,19 @@ class TestSolution(unittest.TestCase):
         nums = [1, 2, 3]
         self.assertEqual(s.numIdenticalPairs(nums), 0)
 
+    def test_numJewelsInStones(self):
+        """
+        771. Jewels and Stones
+        """
+        s = Solution()
+        jewels = "aA"
+        stones = "aAAbbbb"
+        self.assertEqual(s.numJewelsInStones(jewels, stones), 3)
+
+        jewels = "z"
+        stones = "ZZ"
+        self.assertEqual(s.numJewelsInStones(jewels, stones), 0)
+
     def test_runningSum(self):
         """
         1480. Running Sum of 1d Array
@@ -188,7 +206,9 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(s.shuffle(nums, n), [1, 2, 1, 2])
 
     def test_sortedSquares(self):
-        # TODOC: Problem number.
+        """
+        977. Squares of a Sorted Array
+        """
         s = Solution()
 
         nums = [-4, -1, 0, 3, 10]
