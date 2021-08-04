@@ -642,14 +642,15 @@ class Solution:
         * `1 <= nums[i] <= 10^3`
         """
         # O(n) Time, O(n) Space.
-        shuffled = []
-        for x, y in zip(nums[:n], nums[n:]):
-            shuffled += [x, y]
+        shuffled = [None] * 2*n
+        shuffled[::2], shuffled[1::2] = nums[:n], nums[n:]
         return shuffled
 
     def sortedSquares(self, nums: List[int]) -> List[int]:
         """
-        Return the squares of the numbers in non-decreasing order.
+        Given an integer array `nums` sorted in
+        **non-decreasing order**, return *an array of **the squares of
+        each number** sorted in non-decreasing order*.
 
         Parameters
         ----------
@@ -659,40 +660,43 @@ class Solution:
         Returns
         -------
         sorted_squares : list of int
-            The squares sorted in non-decreasing order.
+            The squares of the input numbers sorted in non-decreasing
+            order.
 
         Examples
         --------
         >>> s = Solution()
-        >>> nums = [-4,-1,0,3,10]
+        >>> nums = [-4, -1, 0, 3, 10]
         >>> s.sortedSquares(nums)
         [0, 1, 9, 16, 100]
 
         >>> s = Solution()
-        >>> nums = [-7,-3,2,3,11]
+        >>> nums = [-7, -3, 2, 3, 11]
         >>> s.sortedSquares(nums)
         [4, 9, 9, 49, 121]
 
         Notes
         -----
         977. Squares of a Sorted Array
+
+        Constraints:
+        * `1 <= nums.length <= 10^4`
+        * `-10^4 <= nums[i] <= 10^4`
+        * `nums` is sorted in **non-decreasing** order.
         """
-        # TODO: O(?) Time, O(?) Space.
-        sorted_squares = [0] * len(nums)
-        left_read_pointer = 0
-        right_read_pointer = write_pointer = len(nums) - 1
-        left_square = nums[left_read_pointer] ** 2
-        right_square = nums[right_read_pointer] ** 2
-        while write_pointer >= 0:
-            if left_square > right_square:
-                sorted_squares[write_pointer] = left_square
-                left_read_pointer += 1
-                left_square = nums[left_read_pointer] ** 2
+        # O(n) Time, O(n) Space.
+        n = len(nums)
+        sorted_squares = [None] * n
+        left, right = 0, n - 1
+        for i in range(n - 1, -1, -1):
+            left_squared = nums[left] ** 2
+            right_squared = nums[right] ** 2
+            if left_squared >= right_squared:
+                sorted_squares[i] = left_squared
+                left += 1
             else:
-                sorted_squares[write_pointer] = right_square
-                right_read_pointer -= 1
-                right_square = nums[right_read_pointer] ** 2
-            write_pointer -= 1
+                sorted_squares[i] = right_squared
+                right -= 1
         return sorted_squares
 
 
