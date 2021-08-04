@@ -16,6 +16,7 @@ Contains personal solutions to LeetCode problems.
 1603. Design Parking System
 1672. Richest Customer Wealth
 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+1828. Queries on Number of Points Inside a Circle
 1920. Build Array from Permutation
 1929. Concatenation of Array
 """
@@ -143,6 +144,22 @@ class Solution:
 
         # O(n) Time, O(n) Space.
         return [nums[num] for num in nums]
+
+    def _in_circle(point: List[int], circle: List[int]) -> bool:
+        # TODOC
+        x, y = point
+        h, k, r = circle
+        return ((x - h)**2 + (y - k)**2) <= r**2
+
+    def countPoints(
+        self, points: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
+        # TODOC
+        # RFE: k-d tree.
+
+        # O(m*n) Time, O(n) Space.
+        return [sum(_in_circle(point, query) for point in points)
+                for query in queries]
 
     def defangIPaddr(self, address: str) -> str:
         """
