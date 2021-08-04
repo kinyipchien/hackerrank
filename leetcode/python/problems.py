@@ -110,16 +110,21 @@ class Solution:
         return address.replace('.', '[.]')
 
     def duplicateZeros(self, arr: List[int]) -> None:
-        # TODOC: Constraints.
         """
-        Modifies an array in place, duplicating occurrences of zero and
-        shifting the remaining elements to the right. Elements beyond
-        the length of the original array are not written.
+        Given a fixed length array `arr` of integers, duplicate each
+        occurrence of zero, shifting the remaining elements to the
+        right.
+
+        Note that elements beyond the length of the original array are
+        not written.
+
+        Do the above modifications to the input array **in place**, do
+        not return anything from your function.
 
         Parameters
         ----------
         arr : list of int
-            Integer array.
+            Array of integers.
 
         Returns
         -------
@@ -142,8 +147,11 @@ class Solution:
         Notes
         -----
         1089. Duplicate Zeros
+
+        * `1 <= arr.length <= 10000`
+        * `0 <= arr[i] <= 9`
         """
-        # TODO: O(?) Time, O(?) Space.
+        # O(n) Time, O(1) Space.
         zeros = arr.count(0)
         n = len(arr)
         for i in range(n - 1, -1, -1):
