@@ -1,3 +1,4 @@
+# TODO: Move classes to separate modules.
 """
 Contains personal solutions to LeetCode problems.
 
@@ -92,6 +93,7 @@ class ParkingSystem:
         bool
             Whether there is a space available.
         """
+        # O(1) Time, O(1) Space.
         if self.spaces[carType]:
             self.spaces[carType] -= 1
             return True
@@ -883,6 +885,7 @@ class SubrectangleQueries:
         -------
         None
         """
+        # O(n^2) Time, O(1) Space.
         new_row = [newValue] * (col2 - col1 + 1)
         for row in range(row1, row2 + 1):
             self.rectangle[row][col1:col2 + 1] = new_row
@@ -903,6 +906,7 @@ class SubrectangleQueries:
         int
             Rectangle value at coordinate.
         """
+        # O(1) Time, O(1) Space.
         return self.rectangle[row][col]
 
 if __name__ == '__main__':
