@@ -458,7 +458,7 @@ class Solution:
 
         Returns
         -------
-        num_pairs : int
+        pairs : int
             Number of good pairs.
 
         Examples
@@ -487,15 +487,15 @@ class Solution:
         * `1 <= nums[i] <= 100`
         """
         # O(n) Time. O(n) Space.
-        num_ctr = {}
-        num_pairs = 0
+        c = {}
+        pairs = 0
         for num in nums:
-            if num in num_ctr:
-                num_pairs += num_ctr[num]
-                num_ctr[num] += 1
+            if num in c:
+                pairs += c[num]
+                c[num] += 1
             else:
-                num_ctr[num] = 1
-        return num_pairs
+                c[num] = 1
+        return pairs
 
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         """
