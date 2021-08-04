@@ -11,6 +11,7 @@ Contains tests for LeetCode problems.
 1470. Shuffle the Array
 1480. Running Sum of 1d Array
 1512. Number of Good Pairs
+1603. Design Parking System
 1672. Richest Customer Wealth
 1920. Build Array from Permutation
 1929. Concatenation of Array
@@ -22,7 +23,30 @@ import sys
 sys.path.append('..')
 import unittest
 
-from problems import Solution
+from problems import ParkingSystem, Solution
+
+
+class TestParkingSystem(unittest.TestCase):
+    """
+    1603. Design Parking System
+    """
+
+    def setUp(self):
+        self.input = [
+            ["ParkingSystem", "addCar", "addCar", "addCar", "addCar"],
+            [[1, 1, 0], [1], [2], [3], [1]]]
+        self.expected = [None, True, True, False, False]
+
+    def test_parkingSystem(self):
+        output = []
+        for callable_, arg in zip(self.input[0], self.input[1]):
+            if callable_ == 'ParkingSystem':
+                parking_system = ParkingSystem(*arg)
+                output.append(None)
+            else:
+                output.append(
+                    getattr(parking_system, callable_)(*arg))
+        self.assertEqual(output, self.expected)
 
 
 class TestSolution(unittest.TestCase):
