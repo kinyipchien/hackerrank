@@ -14,6 +14,7 @@ Contains tests for LeetCode problems.
 1512. Number of Good Pairs
 1603. Design Parking System
 1672. Richest Customer Wealth
+1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
 1920. Build Array from Permutation
 1929. Concatenation of Array
 """
@@ -168,6 +169,21 @@ class TestSolution(unittest.TestCase):
 
         accounts = [[2, 8, 7], [7, 1, 3], [1, 9, 5]]
         self.assertEqual(s.maximumWealth(accounts), 17)
+
+    def test_minPartitions(self):
+        """
+        1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+        """
+        s = Solution()
+
+        n = "32"
+        self.assertEqual(s.minPartitions(n), 3)
+
+        n = "82734"
+        self.assertEqual(s.minPartitions(n), 8)
+
+        n = "27346209830709182346"
+        self.assertEqual(s.minPartitions(n), 9)
 
     def test_numIdenticalPairs(self):
         """

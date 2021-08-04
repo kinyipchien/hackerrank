@@ -14,6 +14,7 @@ Contains personal solutions to LeetCode problems.
 1512. Number of Good Pairs
 1603. Design Parking System
 1672. Richest Customer Wealth
+1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
 1920. Build Array from Permutation
 1929. Concatenation of Array
 """
@@ -497,6 +498,57 @@ class Solution:
         """
         # O(m*n) Time, O(1) Space.
         return max(map(sum, accounts))
+
+    def minPartitions(self, n: str) -> int:
+        """
+        Returns the **minimum** number of positive **deci-binary**
+        numbers needed to sum up to `n`*.
+
+        A decimal number is called **deci-binary** if each of its
+        digits is either `0` or `1` without any leading zeros. For
+        example, `101` and `1100` are **deci-binary**, while `112` and
+        `3001` are not.
+
+        Parameters
+        ----------
+        n : str
+            String representing a positive decimal integer.
+
+        Returns
+        -------
+        int
+            **Minimum** number of positive **deci-binary** numbers
+            needed to sum up to `n`*.
+
+        Examples
+        --------
+        >>> s = Solution()
+        >>> n = "32"
+        >>> s.minPartitions(n)
+        3
+
+        >>> s = Solution()
+        >>> n = "82734"
+        >>> s.minPartitions(n)
+        8
+
+        >>> s = Solution()
+        >>> n = "27346209830709182346"
+        >>> s.minPartitions(n)
+        9
+
+        Notes
+        -----
+        1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+
+        Constraints
+        * `1 <= n.length <= 10^5`
+        * `n` consists of only digits.
+        * `n` does not contain any leading zeros and represents a
+        positive integer.
+        """
+        # O(n) Time, O(1) Space.
+        return int(max(n))
 
     def numIdenticalPairs(self, nums: List[int]) -> int:
         """
