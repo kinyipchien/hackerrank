@@ -38,15 +38,15 @@ class TestParkingSystem(unittest.TestCase):
             [[1, 1, 0], [1], [2], [3], [1]]]
         self.expected = [None, True, True, False, False]
 
-    def test_parkingSystem(self):
+    def test_ParkingSystem(self):
         output = []
         for callable_, arg in zip(self.input[0], self.input[1]):
             if callable_ == 'ParkingSystem':
-                parking_system = ParkingSystem(*arg)
+                parkingSystem = ParkingSystem(*arg)
                 output.append(None)
             else:
                 output.append(
-                    getattr(parking_system, callable_)(*arg))
+                    getattr(parkingSystem, callable_)(*arg))
         self.assertEqual(output, self.expected)
 
 
