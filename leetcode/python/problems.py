@@ -1,5 +1,5 @@
 """
-Contains personal solutions to problems.
+Contains personal solutions to LeetCode problems.
 
 485. Max Consecutive Ones
 771. Jewels and Stones
@@ -15,16 +15,9 @@ Contains personal solutions to problems.
 1920. Build Array from Permutation
 1929. Concatenation of Array
 """
-# TODO: Add solutions to following problems.
-# 977. Squares of a Sorted Array
-# 485. Max Consecutive Ones
-# 1089. Duplicate Zeros
 
 # Authors: Kin-Yip Chien
 
-# For Solution.findNumbers().
-# Approach not used due to precision issues.
-# from math import floor, log10
 from typing import List
 
 
