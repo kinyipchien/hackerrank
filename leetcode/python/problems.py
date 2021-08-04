@@ -229,7 +229,6 @@ class Solution:
         return even_num_digits
 
     def findNumbers(self, nums: List[int]) -> int:
-        # TODOC: Constraints.
         """
         Given an array `nums` of integers, return how many of them
         contain an **even number** of digits.
