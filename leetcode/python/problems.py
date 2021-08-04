@@ -11,6 +11,7 @@ Contains personal solutions to LeetCode problems.
 1470. Shuffle the Array
 1480. Running Sum of 1d Array
 1512. Number of Good Pairs
+1603. Design Parking System
 1672. Richest Customer Wealth
 1920. Build Array from Permutation
 1929. Concatenation of Array
@@ -21,22 +22,92 @@ Contains personal solutions to LeetCode problems.
 from typing import List
 
 
+class ParkingSystem:
+    """
+    A parking system for a parking lot.
+
+    The parking lot has three kinds of parking spaces: big, medium, and
+    small, with a fixed number of slots for each size.
+
+    Parameters
+    ----------
+    big : int
+        Number of big slots.
+    medium : int
+        Number of medium slots.
+    small : int
+        Number of small slots.
+
+    Attributes
+    ----------
+    spaces : dict
+        Number of slots for each size.
+
+    Examples
+    --------
+    >>> parking_system = ParkingSystem(1, 1, 0)
+    >>> parking_system.addCar(1)
+    True
+    >>> parking_system.addCar(2)
+    True
+    >>> parking_system.addCar(3)
+    False
+    >>> parking_system.addCar(1)
+    False
+
+    Notes
+    -----
+    1603. Design Parking System
+
+    Constraints:
+    * `0 <= big, medium, small <= 1000`
+    * `carType` is `1`, `2`, or `3`
+    * At most `1000` calls will be made to `addCar`
+    """
+
+    def __init__(self, big: int, medium: int, small: int):
+        self.spaces = {1: big, 2: medium, 3: small}
+
+    def addCar(self, carType: int) -> bool:
+        """
+        Checks whether there is a parking space of `carType` for the
+        car that wants to get into the parking lot.
+
+        **A car can only park in a parking space of its `carType`**. If
+        there is no space available, return `false`, else park the car
+        in that size space and return `true`.
+
+        Parameters
+        ----------
+        carType : int
+            Kind of car type.
+            - 1 : big
+            - 2 : medium
+            - 3 : small
+
+        Returns
+        -------
+        bool
+            Whether there is a space available.
+        """
+        if self.spaces[carType]:
+            self.spaces[carType] -= 1
+            return True
+        return False
+
+
 class Solution:
 
     def buildArray(self, nums: List[int]) -> List[int]:
         """
-        Given a **zero-based permutation** `nums` (**0-indexed**),
-        build an array `ans` of the **same length** where
-        `ans[i] = nums[nums[i]]` for each `0 <= i < nums.length` and
-        return it.
-
-        A **zero-based permutation** `nums` is an array of **distinct**
-        integers from `0` to `nums.length - 1` (**inclusive**).
+        Builds an array from a zero-based permutation where
+        `ans[i] = nums[nums[i]]` for each `0 <= i < nums.length`.
 
         Parameters
         ----------
         nums : list of int
-            Zero-based permutation.
+            Zero-based permutation. An array of **distinct** integers
+            from `0` to `nums.length - 1` (**inclusive**).
 
         Returns
         -------
@@ -71,11 +142,8 @@ class Solution:
 
     def defangIPaddr(self, address: str) -> str:
         """
-        Given a valid (IPv4) IP `address`, return a defanged version of
-        that IP address.
-
-        A *defanged IP address* replaces every period `"."` with
-        `"[.]"`.
+        Defangs a (IPv4) IP `address` by replacing every period `"."`
+        with `"[.]"`.
 
         Parameters
         ----------
@@ -111,15 +179,11 @@ class Solution:
 
     def duplicateZeros(self, arr: List[int]) -> None:
         """
-        Given a fixed length array `arr` of integers, duplicate each
-        occurrence of zero, shifting the remaining elements to the
-        right.
+        Duplicates each occurrence of zero in an input array in-place,
+        shifting the remaining elements to the right.
 
-        Note that elements beyond the length of the original array are
+        Elements beyond the length of the original array are
         not written.
-
-        Do the above modifications to the input array **in place**, do
-        not return anything from your function.
 
         Parameters
         ----------
@@ -166,8 +230,7 @@ class Solution:
 
     def findMaxConsecutiveOnes(self, nums: List[int]) -> List:
         """
-        Given a binary array `nums`, return *the maximum number of
-        consecutive `1`'s in the array*.
+        Returns *the maximum number of consecutive `1`'s in the array*.
 
         Parameters
         ----------
@@ -206,9 +269,9 @@ class Solution:
             max_ones = max(ones, max_ones)
         return max_ones
 
-    def _has_even_num_digits(self, x:int) -> bool:
+    def _has_even_num_digits(self, num:int) -> bool:
         """
-        Checks if number has an even number of digits.
+        Checks if a number has an even number of digits.
 
         Helper method for findNumbers().
 
@@ -223,15 +286,15 @@ class Solution:
             Whether number has an even number of digits.
         """
         even_num_digits = False
-        while x >= 10:
+        while num >= 10:
             even_num_digits = not even_num_digits
-            x //= 10
+            num //= 10
         return even_num_digits
 
     def findNumbers(self, nums: List[int]) -> int:
         """
-        Given an array `nums` of integers, return how many of them
-        contain an **even number** of digits.
+        Returns how many numbers in an input array contain an **even
+        number** of digits.
 
         Parameters
         ----------
@@ -286,14 +349,7 @@ class Solution:
 
     def getConcatenation(self, nums: List[int]) -> List[int]:
         """
-        Given an integer array `nums` of length `n`, you want to create
-        an array `ans` of length `2n` where `ans[i] == nums[i]` and
-        `ans[i + n] == nums[i]` for `0 <= i < n` (**0-indexed**).
-
-        Specifically, `ans` is the **concatenation** of two `nums`
-        arrays.
-
-        Return *the array* `ans`.
+        Returns the concatenation of an array with itself.
 
         Parameters
         ----------
@@ -333,15 +389,11 @@ class Solution:
         self, candies: List[int], extraCandies: int
     ) -> List[bool]:
         """
-        There are `n` kids with candies. You are given an integer array
-        `candies`, where each `candies[i]` represents the number of
-        candies the `ith` kid has, and an integer `extraCandies`,
-        denoting the number of extra candies that you have.
+        Returns a boolean array denoting whether each of n kids has the
+        greatest number of candies.
 
-        Return a *boolean array `result` of length `n`, where
-        `result[i]` is `true` if, after giving the `ith` kid all the
-        `extraCandies`, they will have the **greatest number** of
-        candies among all the kids, or `false` otherwise*.
+        A kid has the greatest number of candies if they have the most
+        candies among the kids after receiving all the extraCandies.
 
         Note that multiple kids can have the greatest number of
         candies.
@@ -349,14 +401,18 @@ class Solution:
         Parameters
         ----------
         candies : list of int
-            Number of candies each kid has.
+            An integer array, where each `candies[i]` represents the
+            number of candies the `ith` kid has.
         extraCandies : int
-            Number of extra candies.
+            Number of extra candies that you have.
 
         Returns
         -------
-        has_greatest_num_candies : list of bool
+        list of bool
             Whether each kid has the greatest number of candies.
+            `result[i]` is `true` if, after giving the `ith` kid all
+            the `extraCandies`, they will have the **greatest number**
+            of candies among all the kids, or `false` otherwise*
 
         Examples
         --------
@@ -394,10 +450,7 @@ class Solution:
 
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         """
-        You are given an `m x n` integer grid `accounts` where
-        `accounts[i][j]` is the amount of money the `ith` customer has
-        in the `jth` bank. Return *the **wealth** that the richest
-        customer has*.
+        Returns *the **wealth** that the richest customer has*.
 
         A customer's **wealth** is the amount of money they have in all
         their bank accounts. The richest customer is the customer that
@@ -406,7 +459,8 @@ class Solution:
         Parameters
         ----------
         accounts : list of list of int
-            Matrix of money held by each customer in each bank.
+            `m x n` integer grid where `accounts[i][j]` is the amount
+            of money the `ith` customer has in the `jth` bank.
 
         Returns
         -------
@@ -445,11 +499,10 @@ class Solution:
 
     def numIdenticalPairs(self, nums: List[int]) -> int:
         """
-        Given an array of integers `nums`.
+        Return the number of *good* pairs given an array of integers.
 
-        A pair `(i,j)` is called *good* if `nums[i]` == `nums[j]` and `i` < `j`.
-
-        Return the number of *good* pairs.
+        A pair `(i,j)` is called *good* if `nums[i]` == `nums[j]` and
+        `i` < `j`.
 
         Parameters
         ----------
@@ -499,20 +552,16 @@ class Solution:
 
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
         """
-        You're given strings `jewels` representing the types of stones
-        that are jewels, and `stones` representing the stones you have.
-        Each character in `stones` is a type of stone you have. You
-        want to know how many of the stones you have are also jewels.
-
-        Letters are case sensitive, so `"a"` is considered a different
-        type of stone from `"A"`.
+        Computes how many of the stones you have are also jewels.
 
         Parameters
         ----------
         jewels : str
-            Jewel characters.
+            String representing the types of stones that are jewels.
+            Letters are case sensitive.
         stones : str
-            Stones you have.
+            String representing the stones you have. Letters are case
+            sensitive.
 
         Returns
         -------
@@ -548,10 +597,8 @@ class Solution:
 
     def runningSum(self, nums: List[int]) -> List[int]:
         """
-        Given an array `nums`. We define a running sum of an array as
+        Returns the running sum of an array where
         `runningSum[i] = sum(nums[0]…nums[i])`.
-
-        Return the running sum of `nums`.
 
         Parameters
         ----------
@@ -561,7 +608,7 @@ class Solution:
         Returns
         -------
         running_sum : list of int
-            Running sum array.
+            Running sum.
 
         Examples
         --------
@@ -595,22 +642,21 @@ class Solution:
 
     def shuffle(self, nums: List[int], n: int) -> List[int]:
         """
-        Given the array `nums` consisting of `2n` elements in the form
-        `[x1,x2,...,xn,y1,y2,...,yn]`.
-
-        *Return the array in the form* `[x1,y1,x2,y2,...,xn,yn]`.
+        Given an array in the form `[x1,x2,...,xn,y1,y2,...,yn]`,
+        returns an array in the form `[x1,y1,x2,y2,...,xn,yn]`.
 
         Parameters
         ----------
         nums : list of int
-            Integer array.
+            Integer array consisting of `2n` elements in the form
+            `[x1,x2,...,xn,y1,y2,...,yn]`.
         n : int
             Positive integer.
 
         Returns
         -------
         shuffled : list of int
-            Shuffled array.
+            Shuffled array in the form `[x1,y1,x2,y2,...,xn,yn]`.
 
         Examples
         --------
@@ -648,14 +694,13 @@ class Solution:
 
     def sortedSquares(self, nums: List[int]) -> List[int]:
         """
-        Given an integer array `nums` sorted in
-        **non-decreasing order**, return *an array of **the squares of
-        each number** sorted in non-decreasing order*.
+        Returns an array of the squares of each number in an input
+        array, sorted in non-decreasing order.
 
         Parameters
         ----------
         nums : list of int
-            Integer array.
+            Integer array sorted in non-decreasing order.
 
         Returns
         -------
