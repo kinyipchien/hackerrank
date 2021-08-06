@@ -21,38 +21,6 @@ from pandasql import sqldf
 pysqldf = lambda q: sqldf(q, globals())
 
 
-with open('../tables/person-address.json') as f:
-    table = json.loads(f.read())
-address = pd.DataFrame(table['rows']['Address'],
-                      columns=table['headers']['Address'])
-
-with open('../tables/cinema.json') as f:
-    table = json.loads(f.read())
-cinema = pd.DataFrame(table['rows']['cinema'],
-                      columns=table['headers']['cinema'])
-
-with open('../tables/department.json') as f:
-    table = json.loads(f.read())
-department = pd.DataFrame(table['rows']['Department'],
-                          columns=table['headers']['Department'])
-
-with open('../tables/person-address.json') as f:
-    table = json.loads(f.read())
-person = pd.DataFrame(table['rows']['Person'],
-                      columns=table['headers']['Person'])
-
-#     BUG: pandasql doesn't support DELETE or UPDATE clauses.
-# with open('../tables/salary.json') as f:
-#     table = json.loads(f.read())
-# salary = pd.DataFrame(table['rows']['salary'],
-#                      columns=table['headers']['salary'])
-
-with open('../tables/world.json') as f:
-    table = json.loads(f.read())
-world = pd.DataFrame(table['rows']['World'],
-                     columns=table['headers']['World'])
-
-
 class TestSolution(unittest.TestCase):
 
     def test_big_countries(self):
@@ -167,4 +135,42 @@ class TestSolution(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    with open('../tables/person-address.json') as f:
+        table = json.loads(f.read())
+    address = pd.DataFrame(table['rows']['Address'],
+                          columns=table['headers']['Address'])
+
+    with open('../tables/cinema.json') as f:
+        table = json.loads(f.read())
+    cinema = pd.DataFrame(table['rows']['cinema'],
+                          columns=table['headers']['cinema'])
+
+    with open('../tables/department.json') as f:
+        table = json.loads(f.read())
+    department = pd.DataFrame(table['rows']['Department'],
+                              columns=table['headers']['Department'])
+
+    # FIXME: person defines different tables.
+    with open('../tables/person.json') as f:
+        table = json.loads(f.read())
+    person = pd.DataFrame(table['rows']['Person'],
+                          columns=table['headers']['Person'])
+
+    # FIXME: person defines different tables.
+    with open('../tables/person-address.json') as f:
+        table = json.loads(f.read())
+    person = pd.DataFrame(table['rows']['Person'],
+                          columns=table['headers']['Person'])
+
+    #     BUG: pandasql doesn't support DELETE or UPDATE clauses.
+    # with open('../tables/salary.json') as f:
+    #     table = json.loads(f.read())
+    # salary = pd.DataFrame(table['rows']['salary'],
+    #                      columns=table['headers']['salary'])
+
+    with open('../tables/world.json') as f:
+        table = json.loads(f.read())
+    world = pd.DataFrame(table['rows']['World'],
+                         columns=table['headers']['World'])
+
     unittest.main()
