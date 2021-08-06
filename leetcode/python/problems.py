@@ -124,14 +124,14 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [0, 2, 1, 5, 3, 4]
-        >>> s.buildArray(nums)
+        >>> soln.buildArray(nums)
         [0, 1, 2, 4, 5, 3]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [5, 0, 1, 2, 3, 4]
-        >>> s.buildArray(nums)
+        >>> soln.buildArray(nums)
         [4, 5, 0, 1, 2, 3]
 
         Notes
@@ -200,16 +200,16 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> points = [[1, 3], [3, 3], [5, 3], [2, 2]]
         >>> queries = [[2, 3, 1], [4, 3, 1], [1, 1, 2]]
-        >>> s.countPoints(points, queries)
+        >>> soln.countPoints(points, queries)
         [3, 2, 2]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> points = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]
         >>> queries = [[1, 2, 2], [2, 2, 2], [4, 3, 2], [4, 3, 3]]
-        >>> s.countPoints(points, queries)
+        >>> soln.countPoints(points, queries)
         [2, 3, 2, 4]
 
         Notes
@@ -300,14 +300,14 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> address = "1.1.1.1"
-        >>> s.defangIPaddr(address)
+        >>> soln.defangIPaddr(address)
         '1[.]1[.]1[.]1'
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> address = "255.100.50.0"
-        >>> s.defangIPaddr(address)
+        >>> soln.defangIPaddr(address)
         '255[.]100[.]50[.]0'
 
         Notes
@@ -339,15 +339,15 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> arr = [1, 0, 2, 3, 0, 4, 5, 0]
-        >>> s.duplicateZeros(arr)
+        >>> soln.duplicateZeros(arr)
         >>> arr
         [1, 0, 0, 2, 3, 0, 0, 4]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> arr = [1, 2, 3]
-        >>> s.duplicateZeros(arr)
+        >>> soln.duplicateZeros(arr)
         >>> arr
         [1, 2, 3]
 
@@ -387,14 +387,14 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 1, 0, 1, 1, 1]
-        >>> s.findMaxConsecutiveOnes(nums)
+        >>> soln.findMaxConsecutiveOnes(nums)
         3
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 0, 1, 1, 0, 1]
-        >>> s.findMaxConsecutiveOnes(nums)
+        >>> soln.findMaxConsecutiveOnes(nums)
         2
 
         Notes
@@ -451,24 +451,24 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [12, 345, 2, 6, 7896]
-        >>> s.findNumbers(nums)
+        >>> soln.findNumbers(nums)
         2
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [555, 901, 482, 1771]
-        >>> s.findNumbers(nums)
+        >>> soln.findNumbers(nums)
         1
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [999999999999999]
-        >>> s.findNumbers(nums)
+        >>> soln.findNumbers(nums)
         0
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [100000]
-        >>> s.findNumbers(nums)
+        >>> soln.findNumbers(nums)
         1
 
         Notes
@@ -506,14 +506,14 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 2, 1]
-        >>> s.getConcatenation(nums)
+        >>> soln.getConcatenation(nums)
         [1, 2, 1, 1, 2, 1]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 3, 2, 1]
-        >>> s.getConcatenation(nums)
+        >>> soln.getConcatenation(nums)
         [1, 3, 2, 1, 1, 3, 2, 1]
 
         Notes
@@ -559,22 +559,22 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> candies = [2, 3, 5, 1, 3]
         >>> extraCandies = 3
-        >>> s.kidsWithCandies(candies, extraCandies)
+        >>> soln.kidsWithCandies(candies, extraCandies)
         [True, True, True, False, True]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> candies = [4, 2, 1, 1, 2]
         >>> extraCandies = 1
-        >>> s.kidsWithCandies(candies, extraCandies)
+        >>> soln.kidsWithCandies(candies, extraCandies)
         [True, False, False, False, False]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> candies = [12, 1, 12]
         >>> extraCandies = 10
-        >>> s.kidsWithCandies(candies, extraCandies)
+        >>> soln.kidsWithCandies(candies, extraCandies)
         [True, False, True]
 
         Notes
@@ -612,19 +612,19 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> accounts = [[1, 2, 3], [3, 2, 1]]
-        >>> s.maximumWealth(accounts)
+        >>> soln.maximumWealth(accounts)
         6
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> accounts = [[1, 5], [7, 3], [3, 5]]
-        >>> s.maximumWealth(accounts)
+        >>> soln.maximumWealth(accounts)
         10
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> accounts = [[2, 8, 7], [7, 1, 3], [1, 9, 5]]
-        >>> s.maximumWealth(accounts)
+        >>> soln.maximumWealth(accounts)
         17
 
         Notes
@@ -663,19 +663,19 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> n = "32"
-        >>> s.minPartitions(n)
+        >>> soln.minPartitions(n)
         3
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> n = "82734"
-        >>> s.minPartitions(n)
+        >>> soln.minPartitions(n)
         8
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> n = "27346209830709182346"
-        >>> s.minPartitions(n)
+        >>> soln.minPartitions(n)
         9
 
         Notes
@@ -710,19 +710,19 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 2, 3, 1, 1, 3]
-        >>> s.numIdenticalPairs(nums)
+        >>> soln.numIdenticalPairs(nums)
         4
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 1, 1, 1]
-        >>> s.numIdenticalPairs(nums)
+        >>> soln.numIdenticalPairs(nums)
         6
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 2, 3]
-        >>> s.numIdenticalPairs(nums)
+        >>> soln.numIdenticalPairs(nums)
         0
 
         Notes
@@ -764,16 +764,16 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> jewels = "aA"
         >>> stones = "aAAbbbb"
-        >>> s.numJewelsInStones(jewels, stones)
+        >>> soln.numJewelsInStones(jewels, stones)
         3
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> jewels = "z"
         >>> stones = "ZZ"
-        >>> s.numJewelsInStones(jewels, stones)
+        >>> soln.numJewelsInStones(jewels, stones)
         0
 
         Notes
@@ -873,19 +873,19 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 2, 3, 4]
-        >>> s.runningSum(nums)
+        >>> soln.runningSum(nums)
         [1, 3, 6, 10]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 1, 1, 1, 1]
-        >>> s.runningSum(nums)
+        >>> soln.runningSum(nums)
         [1, 2, 3, 4, 5]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [3, 1, 2, 10, 1]
-        >>> s.runningSum(nums)
+        >>> soln.runningSum(nums)
         [3, 4, 6, 16, 17]
 
         Notes
@@ -921,22 +921,22 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [2, 5, 1, 3, 4, 7]
         >>> n = 3
-        >>> s.shuffle(nums, n)
+        >>> soln.shuffle(nums, n)
         [2, 3, 5, 4, 1, 7]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 2, 3, 4, 4, 3, 2, 1]
         >>> n = 4
-        >>> s.shuffle(nums, n)
+        >>> soln.shuffle(nums, n)
         [1, 4, 2, 3, 3, 2, 4, 1]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [1, 1, 2, 2]
         >>> n = 2
-        >>> s.shuffle(nums, n)
+        >>> soln.shuffle(nums, n)
         [1, 2, 1, 2]
 
         Notes
@@ -970,19 +970,19 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [8, 1, 2, 2, 3]
-        >>> s.smallerNumbersThanCurrent(nums)
+        >>> soln.smallerNumbersThanCurrent(nums)
         [4, 0, 1, 1, 3]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [6, 5, 4, 8]
-        >>> s.smallerNumbersThanCurrent(nums)
+        >>> soln.smallerNumbersThanCurrent(nums)
         [2, 1, 0, 3]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [7,7,7,7]
-        >>> s.smallerNumbersThanCurrent(nums)
+        >>> soln.smallerNumbersThanCurrent(nums)
         [0, 0, 0, 0]
 
         Notes
@@ -1019,14 +1019,14 @@ class Solution:
 
         Examples
         --------
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [-4, -1, 0, 3, 10]
-        >>> s.sortedSquares(nums)
+        >>> soln.sortedSquares(nums)
         [0, 1, 9, 16, 100]
 
-        >>> s = Solution()
+        >>> soln = Solution()
         >>> nums = [-7, -3, 2, 3, 11]
-        >>> s.sortedSquares(nums)
+        >>> soln.sortedSquares(nums)
         [4, 9, 9, 49, 121]
 
         Notes
