@@ -1139,7 +1139,7 @@ class SubrectangleQueries:
         -------
         None
         """
-        # O(n^2) Time, O(1) Space.
+        # O(m*n) Time, O(n) Space.
         new_row = [newValue] * (col2 - col1 + 1)
         for row in range(row1, row2 + 1):
             self.rectangle[row][col1:col2 + 1] = new_row
