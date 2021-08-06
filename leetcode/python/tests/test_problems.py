@@ -383,7 +383,7 @@ class TestSubrectangleQueries(unittest.TestCase):
         self.assertEqual(output, self.expected[i])
 
     def test_subrectangleQueries(self):
-        for i in range(len(self.input)):
+        for i, _ in enumerate(self.input):
             self.case(i)
 
 

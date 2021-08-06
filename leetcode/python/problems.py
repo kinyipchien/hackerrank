@@ -897,7 +897,7 @@ class Solution:
         * `-10^6 <= nums[i] <= 10^6`
         """
         # O(n) Time, O(n) Space.
-        for i in range(1, len(nums)):
+        for i, _ in enumerate(nums[1:], 1):
             nums[i] += nums[i - 1]
         return nums
 
@@ -997,7 +997,7 @@ class Solution:
         count = [0] * (max(nums) + 2)
         for num in nums:
             count[num + 1] += 1
-        for i in range(1, len(count)):
+        for i, _ in enumerate(count[1:], 1):
             count[i] += count[i - 1]
         return [count[num] for num in nums]
 
