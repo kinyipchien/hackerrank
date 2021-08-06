@@ -14,9 +14,11 @@ Contains personal solutions to LeetCode problems.
 1476. Subrectangle Queries
 1480. Running Sum of 1d Array
 1512. Number of Good Pairs
+1528. Shuffle String
 1603. Design Parking System
 1672. Richest Customer Wealth
 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+1720. Decode XORed Array
 1828. Queries on Number of Points Inside a Circle
 1920. Build Array from Permutation
 1929. Concatenation of Array
@@ -229,6 +231,57 @@ class Solution:
         # O(m*n) Time, O(n) Space.
         return [sum(self._in_circle(point, query) for point in points)
                 for query in queries]
+
+    def decode(self, encoded: List[int], first: int) -> List[int]:
+        """
+        Decodes an encoded array.
+
+        An integer array that consists of `n` non-negative integers is
+        encoded into another integer array of length `n - 1`, such that
+        `encoded[i] = arr[i] XOR arr[i + 1]`. For example, if
+        `arr = [1,0,2,1]`, then `encoded = [1,2,3]`.
+
+        Parameters
+        ----------
+        encoded : list of int
+            Encoded array.
+        first : int
+            First element of decoded array.
+
+        Returns
+        -------
+        decoded : list of int
+            Decoded array.
+
+        Examples
+        --------
+        >>> soln = Solution()
+        >>> encoded = [1, 2, 3]
+        >>> first = 1
+        >>> soln.decode(encoded, first)
+        [1, 0, 2, 1]
+
+        >>> soln = Solution()
+        >>> encoded = [6, 2, 7, 3]
+        >>> first = 4
+        >>> soln.decode(encoded, first)
+        [4, 2, 0, 7, 4]
+
+        Notes
+        -----
+        1720. Decode XORed Array
+
+        Constraints:
+        * `2 <= n <= 10^4`
+        * `encoded.length == n - 1`
+        * `0 <= encoded[i] <= 10^5`
+        * `0 <= first <= 10^5`
+        """
+        # O(n) Time, O(n) Space.
+        decoded = [first]
+        for elem in encoded:
+            decoded.append(decoded[-1] ^ elem)
+        return decoded
 
     def defangIPaddr(self, address: str) -> str:
         """
@@ -735,6 +788,73 @@ class Solution:
         # O(j + s) Time, O(j) Space.
         set_jewels = set(jewels)
         return sum(stone in set_jewels for stone in stones)
+
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        """
+        Shuffle a string such that the character at the `ith` position
+        moves to the `indices[i]` position.
+
+        Parameters
+        ----------
+        s : str
+            String.
+        indices : list of int
+            Integer array.
+
+        Returns
+        -------
+        str
+            Shuffled string.
+
+        Examples
+        --------
+        >>> soln = Solution()
+        >>> s = "codeleet"
+        >>> indices = [4, 5, 6, 7, 0, 2, 1, 3]
+        >>> soln.restoreString(s, indices)
+        'leetcode'
+
+        >>> soln = Solution()
+        >>> s = "abc"
+        >>> indices = [0,1,2]
+        >>> soln.restoreString(s, indices)
+        'abc'
+
+        >>> soln = Solution()
+        >>> s = "aiohn"
+        >>> indices = [3, 1, 4, 2, 0]
+        >>> soln.restoreString(s, indices)
+        'nihao'
+
+        >>> soln = Solution()
+        >>> s = "aaiougrt"
+        >>> indices = [4, 0, 2, 6, 7, 3, 1, 5]
+        >>> soln.restoreString(s, indices)
+        'arigatou'
+
+        >>> soln = Solution()
+        >>> s = "art"
+        >>> indices = [1, 0, 2]
+        >>> soln.restoreString(s, indices)
+        'rat'
+
+        Notes
+        -----
+        1528. Shuffle String
+
+        Constraints:
+        * `s.length == indices.length == n`
+        * `1 <= n <= 100`
+        * `s` contains only lower-case English letters.
+        * `0 <= indices[i] < n`
+        * All values of `indices` are unique (i.e. `indices` is a
+        permutation of the integers from `0` to `n - 1`).
+        """
+        # O(n) Time, O(n) Space.
+        restored = [''] * len(s)
+        for i, idx in enumerate(indices):
+            restored[idx] = s[i]
+        return ''.join(restored)
 
     def runningSum(self, nums: List[int]) -> List[int]:
         """
