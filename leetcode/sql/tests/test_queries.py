@@ -53,7 +53,7 @@ world = pd.DataFrame(table['rows']['World'],
 
 class TestSolution(unittest.TestCase):
 
-    def test_bigCountries(self):
+    def test_big_countries(self):
         """
         595. Big Countries
         """
@@ -129,7 +129,7 @@ class TestSolution(unittest.TestCase):
         assert_frame_equal(pysqldf(q), result_df)
 
 #     BUG: pandasql doesn't support DELETE or UPDATE clauses.
-#     def test_swapSalary(self):
+#     def test_swap_salary(self):
 #         """
 #         627. Swap Salary
 #         """
