@@ -1,7 +1,9 @@
 """
 Contains tests to problems.
 
+175. Combine Two Tables
 595. Big Countries
+620. Not Boring Movies
 627. Swap Salary
 1179. Reformat Department Table
 """
@@ -17,18 +19,31 @@ from pandasql import sqldf
 pysqldf = lambda q: sqldf(q, globals())
 
 
+with open('../tables/person-address.json') as f:
+    table = json.loads(f.read())
+address = pd.DataFrame(table['rows']['Address'],
+                      columns=table['headers']['Address'])
+
+with open('../tables/cinema.json') as f:
+    table = json.loads(f.read())
+cinema = pd.DataFrame(table['rows']['cinema'],
+                      columns=table['headers']['cinema'])
+
 with open('../tables/department.json') as f:
     table = json.loads(f.read())
-Department = pd.DataFrame(table['rows']['Department'],
-                     columns=table['headers']['Department'])
+department = pd.DataFrame(table['rows']['Department'],
+                          columns=table['headers']['Department'])
 
+with open('../tables/person-address.json') as f:
+    table = json.loads(f.read())
+person = pd.DataFrame(table['rows']['Person'],
+                      columns=table['headers']['Person'])
 
 #     BUG: pandasql doesn't support DELETE or UPDATE clauses.
 # with open('../tables/salary.json') as f:
 #     table = json.loads(f.read())
 # salary = pd.DataFrame(table['rows']['salary'],
 #                      columns=table['headers']['salary'])
-
 
 with open('../tables/world.json') as f:
     table = json.loads(f.read())
@@ -55,7 +70,40 @@ class TestSolution(unittest.TestCase):
                                  columns=result['headers'])
         assert_frame_equal(pysqldf(q), result_df)
 
-    def test_reformatDepartmentTable(self):
+    def test_combine_two_tables(self):
+        """
+        175. Combine Two Tables
+        """
+        with open('../175-combine-two-tables.sql') as f:
+            q = f.read()
+
+        result = json.loads('''
+        {"headers": ["FirstName", "LastName", "City", "State"],
+         "values": [["Allen", "Wang", null, null]]}
+        ''')
+
+        result_df = pd.DataFrame(result['values'],
+                                 columns=result['headers'])
+        assert_frame_equal(pysqldf(q), result_df)
+
+    def test_not_boring_movies(self):
+        """
+        620. Not Boring Movies
+        """
+        with open('../620-not-boring-movies.sql') as f:
+            q = f.read()
+
+        result = json.loads('''
+        {"headers": ["id", "movie", "description", "rating"],
+         "values": [[5, "House card", "Interesting", 9.1],
+                    [1, "War", "great 3D", 8.9]]}
+        ''')
+
+        result_df = pd.DataFrame(result['values'],
+                                 columns=result['headers'])
+        assert_frame_equal(pysqldf(q), result_df)
+
+    def test_reformat_department_table(self):
         """
         1179. Reformat Department Table
         """
