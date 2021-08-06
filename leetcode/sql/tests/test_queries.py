@@ -1,7 +1,9 @@
+# TODO: Move methods to separate modules.
 """
 Contains tests to problems.
 
 175. Combine Two Tables
+182. Duplicate Emails
 595. Big Countries
 620. Not Boring Movies
 627. Swap Salary
@@ -80,6 +82,21 @@ class TestSolution(unittest.TestCase):
         result = json.loads('''
         {"headers": ["FirstName", "LastName", "City", "State"],
          "values": [["Allen", "Wang", null, null]]}
+        ''')
+
+        result_df = pd.DataFrame(result['values'],
+                                 columns=result['headers'])
+        assert_frame_equal(pysqldf(q), result_df)
+
+    def test_duplicate_emails(self):
+        """
+        182. Duplicate Emails
+        """
+        with open('../182-duplicate-emails.sql') as f:
+            q = f.read()
+
+        result = json.loads('''
+        {"headers": ["Email"], "values": [["a@b.com"]]}
         ''')
 
         result_df = pd.DataFrame(result['values'],
