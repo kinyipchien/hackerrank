@@ -17,11 +17,10 @@ Contains tests for LeetCode problems.
 1603. Design Parking System
 1672. Richest Customer Wealth
 1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
+1828. Queries on Number of Points Inside a Circle
 1920. Build Array from Permutation
 1929. Concatenation of Array
 """
-#TODO: Write tests.
-# 1828. Queries on Number of Points Inside a Circle
 
 # Authors: Kin-Yip Chien
 
@@ -68,6 +67,20 @@ class TestSolution(unittest.TestCase):
 
         nums = [5, 0, 1, 2, 3, 4]
         self.assertEqual(s.buildArray(nums), [4, 5, 0, 1, 2, 3])
+
+    def test_countPoints(self):
+        """
+        1828. Queries on Number of Points Inside a Circle
+        """
+        s = Solution()
+
+        points = [[1, 3], [3, 3], [5, 3], [2, 2]]
+        queries = [[2, 3, 1], [4, 3, 1], [1, 1, 2]]
+        self.assertEqual(s.countPoints(points, queries), [3, 2, 2])
+
+        points = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]
+        queries = [[1, 2, 2], [2, 2, 2], [4, 3, 2], [4, 3, 3]]
+        self.assertEqual(s.countPoints(points, queries), [2, 3, 2, 4])
 
     def test_defangIPaddr(self):
         """

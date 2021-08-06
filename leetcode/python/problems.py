@@ -146,8 +146,25 @@ class Solution:
         # O(n) Time, O(n) Space.
         return [nums[num] for num in nums]
 
-    def _in_circle(point: List[int], circle: List[int]) -> bool:
-        # TODOC
+    def _in_circle(self, point: List[int], circle: List[int]) -> bool:
+        """
+        Checks if a point is in a circle.
+
+        Helper method for countPoints().
+
+        Parameters
+        ----------
+        point : list of int
+            Cartesian coordinates (x, y) of point.
+        circle : list of int
+            Cartesian coordinates (h, k) of the center of the circle
+            and the radius r as [h, k, r].
+
+        Returns
+        -------
+        bool
+            Whether the point is in the circle.
+        """
         x, y = point
         h, k, r = circle
         return ((x - h)**2 + (y - k)**2) <= r**2
@@ -155,11 +172,62 @@ class Solution:
     def countPoints(
         self, points: List[List[int]], queries: List[List[int]]
     ) -> List[int]:
-        # TODOC
+        """
+        Given an array of points and an array of queries, for each
+        query, compute the number of points **inside** the `jth`
+        circle.
+
+        Points **on the border** of the circle are considered
+        **inside**.
+
+        Parameters
+        ----------
+        points : list of list of int
+            An array `points` where `points[i] = [xi, yi]` is the
+            coordinates of the `ith` point on a 2D plane.
+        queries : list of list of int
+            An array `queries` where `queries[j] = [xj, yj, rj]`
+            describes a circle centered at `(xj, yj)` with a radius of
+            `rj`.
+
+        Returns
+        -------
+        array
+            *An array where `array[j]` is the answer to the `jth`
+            query*.
+
+        Examples
+        --------
+        >>> s = Solution()
+        >>> points = [[1, 3], [3, 3], [5, 3], [2, 2]]
+        >>> queries = [[2, 3, 1], [4, 3, 1], [1, 1, 2]]
+        >>> s.countPoints(points, queries)
+        [3, 2, 2]
+
+        >>> s = Solution()
+        >>> points = [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]
+        >>> queries = [[1, 2, 2], [2, 2, 2], [4, 3, 2], [4, 3, 3]]
+        >>> s.countPoints(points, queries)
+        [2, 3, 2, 4]
+
+        Notes
+        -----
+        1828. Queries on Number of Points Inside a Circle
+
+        Constraints:
+        * `1 <= points.length <= 500`
+        * `points[i].length == 2`
+        * `0 <= xi, yi <= 500`
+        * `1 <= queries.length <= 500`
+        * `queries[j].length == 3`
+        * `0 <= xj, yj <= 500`
+        * `1 <= rj <= 500`
+        * All coordinates are integers.
+        """
         # RFE: k-d tree.
 
         # O(m*n) Time, O(n) Space.
-        return [sum(_in_circle(point, query) for point in points)
+        return [sum(self._in_circle(point, query) for point in points)
                 for query in queries]
 
     def defangIPaddr(self, address: str) -> str:
