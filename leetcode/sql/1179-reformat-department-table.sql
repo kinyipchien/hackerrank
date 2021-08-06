@@ -11,6 +11,6 @@ SELECT id,
     SUM(CASE month WHEN 'Oct' THEN revenue END) as Oct_Revenue,
     SUM(CASE month WHEN 'Nov' THEN revenue END) as Nov_Revenue,
     SUM(CASE month WHEN 'Dec' THEN revenue END) as Dec_Revenue
-FROM Department
+FROM department
 GROUP BY id
 ;
