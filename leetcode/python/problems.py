@@ -8,6 +8,7 @@ Contains personal solutions to LeetCode problems.
 1089. Duplicate Zeros
 1108. Defanging an IP Address
 1295. Find Numbers with Even Number of Digits
+1365. How Many Numbers Are Smaller Than the Current Number
 1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
 1476. Subrectangle Queries
@@ -763,6 +764,54 @@ class Solution:
         shuffled = [None] * 2*n
         shuffled[::2], shuffled[1::2] = nums[:n], nums[n:]
         return shuffled
+
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        """
+        For a given array `nums`, returns an array where `array[i]` is
+        how many numbers in the array are smaller than `nums[i]`.
+
+        Parameters
+        ----------
+        nums : list of int
+            Integer array.
+
+        Returns
+        -------
+        list of int
+            Result array.
+
+        Examples
+        --------
+        >>> s = Solution()
+        >>> nums = [8, 1, 2, 2, 3]
+        >>> s.smallerNumbersThanCurrent(nums)
+        [4, 0, 1, 1, 3]
+
+        >>> s = Solution()
+        >>> nums = [6, 5, 4, 8]
+        >>> s.smallerNumbersThanCurrent(nums)
+        [2, 1, 0, 3]
+
+        >>> s = Solution()
+        >>> nums = [7,7,7,7]
+        >>> s.smallerNumbersThanCurrent(nums)
+        [0, 0, 0, 0]
+
+        Notes
+        -----
+        1365. How Many Numbers Are Smaller Than the Current Number
+
+        Constraints:
+        * `2 <= nums.length <= 500`
+        * `0 <= nums[i] <= 100`
+        """
+        # O(n) Time, O(n) Space.
+        count = [0] * (max(nums) + 2)
+        for num in nums:
+            count[num + 1] += 1
+        for i in range(1, len(count)):
+            count[i] += count[i - 1]
+        return [count[num] for num in nums]
 
     def sortedSquares(self, nums: List[int]) -> List[int]:
         """

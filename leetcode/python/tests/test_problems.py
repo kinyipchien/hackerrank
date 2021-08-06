@@ -8,6 +8,7 @@ Contains tests for LeetCode problems.
 1089. Duplicate Zeros
 1108. Defanging an IP Address
 1295. Find Numbers with Even Number of Digits
+1365. How Many Numbers Are Smaller Than the Current Number
 1431. Kids With the Greatest Number of Candies
 1470. Shuffle the Array
 1476. Subrectangle Queries
@@ -248,6 +249,24 @@ class TestSolution(unittest.TestCase):
         nums = [1, 1, 2, 2]
         n = 2
         self.assertEqual(s.shuffle(nums, n), [1, 2, 1, 2])
+
+    def test_smallerNumbersThanCurrent(self):
+        """
+        1365. How Many Numbers Are Smaller Than the Current Number
+        """
+        s = Solution()
+
+        nums = [8, 1, 2, 2, 3]
+        self.assertEqual(
+            s.smallerNumbersThanCurrent(nums), [4, 0, 1, 1, 3])
+
+        nums = [6, 5, 4, 8]
+        self.assertEqual(
+            s.smallerNumbersThanCurrent(nums), [2, 1, 0, 3])
+
+        nums = [7,7,7,7]
+        self.assertEqual(
+            s.smallerNumbersThanCurrent(nums), [0, 0, 0, 0])
 
     def test_sortedSquares(self):
         """
