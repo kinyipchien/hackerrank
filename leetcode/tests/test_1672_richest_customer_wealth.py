@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1672_richest_customer_wealth')
+        'src.problems.1672_richest_customer_wealth')
     .Solution)
 import unittest
 

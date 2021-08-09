@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1929_concatenation_of_array')
+        'src.problems.1929_concatenation_of_array')
     .Solution)
 import unittest
 

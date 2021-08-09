@@ -16,7 +16,7 @@
 1108. Defanging an IP Address
 """
 from importlib import import_module
-Solution = (import_module('problems.1108_defanging_an_ip_address')
+Solution = (import_module('src.problems.1108_defanging_an_ip_address')
             .Solution)
 import unittest
 

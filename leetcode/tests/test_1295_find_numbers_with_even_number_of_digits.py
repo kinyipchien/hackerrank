@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1295_find_numbers_with_even_number_of_digits')
+        'src.problems.1295_find_numbers_with_even_number_of_digits')
     .Solution)
 import unittest
 

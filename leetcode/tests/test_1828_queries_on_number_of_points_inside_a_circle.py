@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1828_queries_on_number_of_points_inside_a_circle')
+        'src.problems.1828_queries_on_number_of_points_inside_a_circle')
     .Solution)
 import unittest
 

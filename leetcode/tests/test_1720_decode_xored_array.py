@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1720_decode_xored_array')
+        'src.problems.1720_decode_xored_array')
     .Solution)
 import unittest
 

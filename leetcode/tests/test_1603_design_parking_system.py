@@ -18,7 +18,7 @@
 from importlib import import_module
 ParkingSystem = (
     import_module(
-        'problems.1603_design_parking_system')
+        'src.problems.1603_design_parking_system')
     .ParkingSystem)
 import unittest
 

@@ -36,7 +36,7 @@ person = pd.DataFrame(table['rows']['Person'],
 class TestSolution(unittest.TestCase):
 
     def test_duplicate_emails(self):
-        with open('problems/0182-duplicate-emails.sql') as f:
+        with open('src/problems/0182-duplicate-emails.sql') as f:
             q = f.read()
 
         result = json.loads('''

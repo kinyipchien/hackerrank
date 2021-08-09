@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1689_partitioning_into_minimum_number_of_decibinary_numbers')
+        'src.problems.1689_partitioning_into_minimum_number_of_decibinary_numbers')
     .Solution)
 import unittest
 

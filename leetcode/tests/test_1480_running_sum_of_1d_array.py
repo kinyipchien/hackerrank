@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1480_running_sum_of_1d_array')
+        'src.problems.1480_running_sum_of_1d_array')
     .Solution)
 import unittest
 

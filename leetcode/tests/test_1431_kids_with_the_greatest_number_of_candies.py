@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1431_kids_with_the_greatest_number_of_candies')
+        'src.problems.1431_kids_with_the_greatest_number_of_candies')
     .Solution)
 import unittest
 

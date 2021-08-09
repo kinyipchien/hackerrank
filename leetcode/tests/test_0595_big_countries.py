@@ -42,7 +42,7 @@ world = pd.DataFrame(table['rows']['World'],
 class TestSolution(unittest.TestCase):
 
     def test_big_countries(self):
-        with open('problems/0595-big-countries.sql') as f:
+        with open('src/problems/0595-big-countries.sql') as f:
             q = f.read()
 
         result = json.loads('''

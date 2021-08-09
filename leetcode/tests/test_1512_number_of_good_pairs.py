@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1512_number_of_good_pairs')
+        'src.problems.1512_number_of_good_pairs')
     .Solution)
 import unittest
 

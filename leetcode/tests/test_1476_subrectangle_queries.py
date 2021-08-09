@@ -18,7 +18,7 @@
 from importlib import import_module
 SubrectangleQueries = (
     import_module(
-        'problems.1476_subrectangle_queries')
+        'src.problems.1476_subrectangle_queries')
     .SubrectangleQueries)
 import unittest
 

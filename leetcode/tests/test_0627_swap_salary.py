@@ -38,7 +38,7 @@ salary = pd.DataFrame(table['rows']['salary'],
 
 #     BUG: pandasql doesn't support DELETE or UPDATE clauses.
 #     def test_swap_salary(self):
-#         with open('problems/0627-swap-salary.sql') as f:
+#         with open('src/problems/0627-swap-salary.sql') as f:
 #             q = f.read()
 
 #         result = json.loads('''

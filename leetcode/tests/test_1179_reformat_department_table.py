@@ -38,7 +38,7 @@ department = pd.DataFrame(table['rows']['Department'],
 class TestSolution(unittest.TestCase):
 
     def test_reformat_department_table(self):
-        with open('problems/1179-reformat-department-table.sql') as f:
+        with open('src/problems/1179-reformat-department-table.sql') as f:
             q = f.read()
 
         result = json.loads('''

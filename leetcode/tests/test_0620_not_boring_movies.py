@@ -38,7 +38,7 @@ cinema = pd.DataFrame(table['rows']['cinema'],
 class TestSolution(unittest.TestCase):
 
     def test_not_boring_movies(self):
-        with open('problems/0620-not-boring-movies.sql') as f:
+        with open('src/problems/0620-not-boring-movies.sql') as f:
             q = f.read()
 
         result = json.loads('''

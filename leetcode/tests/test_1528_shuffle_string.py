@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1528_shuffle_string')
+        'src.problems.1528_shuffle_string')
     .Solution)
 import unittest
 

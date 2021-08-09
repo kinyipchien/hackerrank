@@ -16,7 +16,8 @@
 771. Jewels and Stones
 """
 from importlib import import_module
-Solution = import_module('problems.0771_jewels_and_stones').Solution
+Solution = (
+    import_module('src.problems.0771_jewels_and_stones').Solution)
 import unittest
 
 

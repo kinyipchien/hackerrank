@@ -16,8 +16,9 @@
 977. Squares of a Sorted Array
 """
 from importlib import import_module
-Solution = (import_module('problems.0977_squares_of_a_sorted_array')
-            .Solution)
+Solution = (
+    import_module('src.problems.0977_squares_of_a_sorted_array')
+    .Solution)
 import unittest
 
 

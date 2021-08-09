@@ -16,7 +16,7 @@
 1089. Duplicate Zeros
 """
 from importlib import import_module
-Solution = (import_module('problems.1089_duplicate_zeros')
+Solution = (import_module('src.problems.1089_duplicate_zeros')
             .Solution)
 import unittest
 

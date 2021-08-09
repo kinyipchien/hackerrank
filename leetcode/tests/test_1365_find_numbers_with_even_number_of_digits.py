@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1365_how_many_numbers_are_smaller_than_the_current_number')
+        'src.problems.1365_how_many_numbers_are_smaller_than_the_current_number')
     .Solution)
 import unittest
 

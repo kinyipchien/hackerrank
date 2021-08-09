@@ -18,7 +18,7 @@
 from importlib import import_module
 Solution = (
     import_module(
-        'problems.1920_build_array_from_permutation')
+        'src.problems.1920_build_array_from_permutation')
     .Solution)
 import unittest
 

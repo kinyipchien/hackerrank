@@ -40,7 +40,7 @@ person = pd.DataFrame(table['rows']['Person'],
 class TestSolution(unittest.TestCase):
 
     def test_combine_two_tables(self):
-        with open('problems/0175-combine-two-tables.sql') as f:
+        with open('src/problems/0175-combine-two-tables.sql') as f:
             q = f.read()
 
         result = json.loads('''

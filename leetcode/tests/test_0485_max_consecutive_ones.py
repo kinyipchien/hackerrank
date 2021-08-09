@@ -16,7 +16,8 @@
 485. Max Consecutive Ones
 """
 from importlib import import_module
-Solution = import_module('problems.0485_max_consecutive_ones').Solution
+Solution = (
+    import_module('src.problems.0485_max_consecutive_ones').Solution)
 import unittest
 
 
