@@ -1,1 +1,2 @@
-# coding-challenges
+# hackerrank
+Personal solutions to HackerRank problems.
